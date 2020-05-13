@@ -1,28 +1,19 @@
 body {
   background-color: #000102;
   margin: 0;
-  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-
-}
-
-.background{
-  background-image: url('../img/dash.jpeg');
-  background-repeat: no-repeat;
-  width: 1820px;
-  height: 1213px;
-  overflow: hidden;
-  position: relative;
+  height: 100vh;
+  width: 100vw;
   
 }
 
+
 .container {
-  width: 899px;
-  height: 539px;
+  width: 1000px;
+  height: 650px;
   background-color: #202753;
-  position: absolute;
-  left: 465px;
-  top:294px;
+  border-radius: 1%;
+
 }
