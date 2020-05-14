@@ -1,19 +1,161 @@
 body {
   background-color: #000102;
   margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
-  
 }
-
 
 .container {
   width: 1000px;
   height: 650px;
   background-color: #202753;
   border-radius: 1%;
+}
 
+.top-info {
+  width: 100%;
+  height: 10%;
+  background-color: #06335f;
+}
+
+.content {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+  background-color: aliceblue;
+  animation-duration: 0.75s;
+  transition-timing-function: ease-in;
+  animation-fill-mode: both;
+}
+
+.down-info {
+  width: 100%;
+  height: 10%;
+  background-color: aquamarine;
+}
+
+.box {
+  background-color: wheat;
+  border-radius: 5%;
+}
+
+.left {
+  width: 42.5%;
+  height: 85%;
+}
+
+.right{
+  width: 42.5%;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+.up {
+  height: 46%;
+}
+
+.down {
+  height: 46%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+* Animations
+
+*/
+
+
+.fadeinright {
+  animation-name: fadeInRight;
+}
+
+.fadeinleft {
+  animation-name: fadeInLeft;
+}
+
+.fadeoutleft {
+  animation-name: fadeOutLeft;
+}
+
+.fadeoutright {
+  animation-name: fadeOutRight;
+}
+
+/* 
+
+* Keyframes
+
+*/
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeOutRight {
+  0% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes fadeOutLeft {
+  0% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
 }
