@@ -28,7 +28,7 @@ body {
   align-items: center;
   width: 100%;
   height: 80%;
-  background-color: aliceblue;
+  background-color: #202753;
   animation-duration: 0.75s;
   transition-timing-function: ease-in;
   animation-fill-mode: both;
