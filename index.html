@@ -8,23 +8,135 @@
     <link rel="stylesheet" type="text/css" href="./css/main.css">
     <link rel="stylesheet" type="text/css" href="./css/maps.css">
     <link rel="shortcut icon" type="image/svg" href="./img/icon.svg" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
 
     <div class="container">
-        <div class="top-info"></div>
+        <div class="top-info">
+            <div class="info">
+                <p id="hours" style="font-weight: bold;">19:20</p>
+                <p id="date" class="opacity-letters">Friday, 5 May 2020</p>
+                <p id="temperature" style="font-weight: bold;">22</p>
+                <p style="margin-left: 0;"" class=" opacity-letters">ºC</p>
+            </div>
+
+            <div class="info" style="justify-content: flex-end;">
+                <p id="music">RFM</p>
+                <div style="display: flex; align-items: center;">
+                    <img src="./img/top-info/wrench.png" width="50px" alt="Wrench">
+                </div>
+            </div>
+
+
+        </div>
         <div class="content">
             <div class="box left">
                 <div id="map"></div>
             </div>
             <div class="right">
-                <div class="box up"></div>
-                <div class="box down"></div>
+                <div class="box up" style="display: flex;flex-direction: column-reverse;">
+                    <div class="music-controls" id="m-controls"></div>
+                </div>
+                <div class="box down" style="display: flex;flex-direction: column;">
+                    <h4 style="margin:0;">Weather</h4>
+                    <div class="weather">
+                        <div class="weather-info">
+                            <img id="image-weather" src="./img/weather/w/sun.svg" width="60px" alt="Weather">
+                            <div style="display: flex; flex-direction: column;align-items: center;">
+                                <p class="big-weather"><span id="weather">Sun</span></p>
+                                <p class="little-weather">weather</p>
+                            </div>
+                            <div style="display: flex; flex-direction: column;align-items: center;">
+                                <p class="big-weather"><span id="wind">5</span><span style="font-size: x-small;">km/h</span></p>
+                                <p class="little-weather">wind</p>
+                            </div>
+                        </div>
+                        <div class="weather-info">
+                            <img src="./img/weather/term.svg" width="60px" alt="Temperature">
+                            <div style="display: flex; flex-direction: column;align-items: center;">
+                                <p class="big-weather">20<span style="font-size: x-small;">ºC</span></p>
+                                <p class="little-weather">inside</p>
+                            </div>
+                            <div style="display: flex; flex-direction: column;align-items: center;">
+                                <p class="big-weather"><span id="temperature2">22</span><span style="font-size: x-small;">ºC</span></p>
+                                <p class="little-weather">outside</p>
+                            </div>
+                        </div>
+                        <div class="weather-info">
+                            <img src="./img/weather/watering.svg" width="60px" alt="Temperature">
+                            <div style="display: flex; flex-direction: column;align-items: center;">
+                                <p class="big-weather"><span id="precipitacion">15</span><span style="font-size: x-small;">%</span></p>
+                                <p class="little-weather">precipitacion</p>
+                            </div>
+                            <div style="display: flex; flex-direction: column;align-items: center;">
+                                <p class="big-weather"><span id="humidity">60</span><span style="font-size: x-small;">%</span></p>
+                                <p class="little-weather">humidity</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
 
             </div>
         </div>
-        <div class="down-info"></div>
+        <div class="down-info">
+            <div class="air-conditioner">
+                <div class="air-box">
+                    <p id="airtemp">22ºC</p>
+                    <img src="./img/down-info/air/air.svg" width="40px" alt="Airconditioner">
+                </div>
+            </div>
+            <div class="v-line"></div>
+            <div class="navbar">
+                <div class="menu">
+                    <img src="./img/down-info/home.svg" width="40px" alt="Home">
+                    <p class="app-name">Home</p>
+                </div>
+                <div class="menu">
+                    <img src="./img/down-info/phone.svg" width="40px" alt="Phone">
+                    <p class="app-name">Phone</p>
+                </div>
+                <div class="menu">
+                    <img src="./img/down-info/radio.svg" width="40px" alt="Radio">
+                    <p class="app-name">Audio</p>
+                </div>
+
+                <div class="menu">
+                    <img src="./img/down-info/tesla.png" width="105px" alt="Car">
+                    <p class="app-name">Car Info</p>
+                </div>
+                <div class="menu">
+                    <img src="./img/down-info/navigation.svg" width="40px" alt="Navigation">
+                    <p class="app-name">Navi</p>
+                </div>
+
+                <div class="menu">
+                    <img src="./img/down-info/apps.svg" width="40px" alt="Apps">
+                    <p class="app-name">Apps</p>
+                </div>
+            </div>
+            <div class="v-line"></div>
+            <div class="heated-seats">
+                <div style="display: flex; justify-content: space-around; width: 100%;">
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <p class="app-name" style="margin-bottom: 5px; margin-top: 0px;"">L</p>
+                        <img src=" ./img/down-info/heated-seats/seat.svg" width="40px" alt="Driver Seat">
+
+                    </div>
+                    <div style="display: flex; flex-direction: column;align-items: center;">
+                        <p class="app-name" style="margin-bottom: 5px; margin-top: 0px;">R</p>
+                        <img src="./img/down-info/heated-seats/seat.svg" style="transform: scaleX(-1);" width="40px"
+                            alt="Passenger Seat">
+                    </div>
+                </div>
+                <p class="app-name" style="margin-top:5px">Heated Seats</p>
+            </div>
+        </div>
+    </div>
     </div>
 
     <script type="text/javascript" src="./js/maps.js"></script>
