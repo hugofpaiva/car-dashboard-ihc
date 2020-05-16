@@ -59,6 +59,7 @@ function updateTime() {
   var minutes = date.getMinutes();
   var day = date.getDay();
   var dayWeek = days[day];
+  day = date.getUTCDate();
   var month = months[date.getMonth()];
   var year = date.getFullYear();
   if (minutes.length < 2) {
@@ -77,4 +78,4 @@ function main(){
     updateTime();
 }
 
-setInterval(main, 10000);
+setInterval(main(), 10000);
