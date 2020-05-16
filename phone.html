@@ -5,22 +5,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Dashboard</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="./css/phone.css">
     <link rel="stylesheet" type="text/css" href="./css/main.css">
     <link rel="shortcut icon" type="image/svg" href="./img/icon.svg" />
 </head>
 
 <body>
 
-    <div class="container">
+    <div class="container" style="font-family: 'Roboto'; color: white;">
         <div class="top-info"></div>
         <div class="content">
-            <div style="background-color: black;" class="right"></div>
+            <div style="width: 25%; background-color: slateblue;"  class="box left recent">
+                <div class="row" style="justify-content: space-evenly;">
+                    <div style="width: 40%;"><img id="im0" width="70px" height="70px"></div>
+                    <div style="width: 55%;"><p id="desc0"></p></div>
+                </div>
+                <div class="row" style="justify-content: space-evenly;">
+                    <div style="width: 40%;"><img id="im1" width="70px" height="70px"></div>
+                    <div style="width: 55%;"><p id="desc1"></p></div>
+                </div>
+                <div class="row" style="justify-content: space-evenly;">
+                    <div style="width: 40%;"><img id="im2" width="70px" height="70px"></div>
+                    <div style="width: 55%;"><p id="desc2"></p></div>
+                </div>
+                <div class="row" style="justify-content: space-evenly;">
+                    <div style="width: 40%;"><img id="im3" width="70px" height="70px"></div>
+                    <div style="width: 55%;"><p id="desc3"></p></div>
+                </div>
+            </div>
+            <div style="width: 60%;" class="right">
+                <div class="letterpad">
+                    <div class="row">
+                        <div style="border-top-left-radius: 5%;" class="button">A</div>
+                        <div class="button">B</div>
+                        <div class="button">C</div>
+                        <div class="button">D</div>
+                        <div class="button">E</div>
+                        <div style="border-top-right-radius: 5%;" class="button">F</div>
+                    </div>
+                    <div class="row">
+                        <div class="button">G</div>
+                        <div class="button">H</div>
+                        <div class="button">I</div>
+                        <div class="button">J</div>
+                        <div class="button">K</div>
+                        <div class="button">L</div>
+                    </div>
+                    <div class="row">
+                        <div class="button">M</div>
+                        <div class="button">N</div>
+                        <div class="button">O</div>
+                        <div class="button">P</div>
+                        <div class="button">Q</div>
+                        <div class="button">R</div>
+                    </div>
+                    <div class="row">
+                        <div class="button">S</div>
+                        <div class="button">T</div>
+                        <div class="button">U</div>
+                        <div class="button">V</div>
+                        <div class="button">W</div>
+                        <div class="button">X</div>
+                    </div>
+                    <div class="row">
+                        <div style="border-bottom-left-radius: 5%;" class="button">Y</div>
+                        <div class="button">Z</div>
+                        <div class="button"></div>
+                        <div class="button"></div>
+                        <div class="button"></div>
+                        <div style="border-bottom-right-radius: 5%;" class="button"></div>
+                    </div>
+                </div>
+                <div class="iconbar">
+                    <div style="border-radius: 5%; height: 100%;" class="button">
+                        <img src="./img/wall-clock.png" width="80%">
+                    </div>
+                    <div style="border-radius: 5%; height: 100%;" class="button">
+                        <img src="./img/buttons.png" width="80%">
+                    </div>
+                    <div style="border-radius: 5%; height: 100%;" class="button">
+                        <img src="./img/maps-and-flags.png" width="80%">
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="down-info"></div>
     </div>
-
-
-    <script type="text/javascript" src="./js/main.js"></script>
+    <script type="text/javascript" src="./js/phone.js"></script>
 </body>
 
 </html>
