@@ -16,17 +16,56 @@ function getWeather(lat, long) {
   fetch(`${root}lat=${lat}&lon=${long}`, { method: "get" })
     .then((resp) => resp.json())
     .then((data) => {
-      console.log(data.name, data.weather, data.main.temp);
+      console.log(data);
       document.getElementById("temperature").innerHTML = data.main.temp.toFixed(
         0
       );
+      document.getElementById("temperature2").innerHTML = data.main.temp.toFixed(
+        0
+      );
+      document.getElementById("wind").innerHTML = data.wind.speed;
+      document.getElementById("humidity").innerHTML = data.main.humidity;
+      document.getElementById("weather").innerHTML = data.weather[0].main;
+
+      switch(data.weather[0].main) {
+        case "Drizzle":
+          document.getElementById("image-weather").src = "../img/weather/w/rain.svg";
+          break;
+        case "Clouds":
+          document.getElementById("image-weather").src = "../img/weather/w/cloudy.svg";
+          precipitation();
+          break;
+        case "Rain":
+          document.getElementById("image-weather").src = "../img/weather/w/rain.svg";
+          break;
+        case "Snow":
+          document.getElementById("image-weather").src = "../img/weather/w/snow.svg";
+          break;
+        case "Clear":
+          document.getElementById("image-weather").src = "../img/weather/w/sun.svg";
+          precipitation();
+          break;
+        case "Thunderstorm":
+          document.getElementById("image-weather").src = "../img/weather/w/thunder.svg";
+          precipitation();
+          break;
+        case "Mist":
+          document.getElementById("image-weather").src = "../img/weather/w/cloudy.svg";
+          precipitation();
+          break;
+        default:
+          break;
+      }
     })
     .catch(function (err) {
       console.error(err);
     });
 }
 
-getLocation();
+function precipitation() {
+  var preci = Math.floor(Math.random() * 35) + 15;
+  document.getElementById("precipitacion").innerHTML = preci;
+}
 
 // HORAS
 
@@ -62,7 +101,7 @@ function updateTime() {
   day = date.getUTCDate();
   var month = months[date.getMonth()];
   var year = date.getFullYear();
-  if (minutes.length < 2) {
+  if (String(minutes).length < 2) {
     minutes = "0" + minutes;
   }
 
@@ -78,4 +117,6 @@ function main(){
     updateTime();
 }
 
-setInterval(main(), 10000);
+main()
+
+setInterval(main, 20000);
