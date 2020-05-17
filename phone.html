@@ -9,14 +9,13 @@
     <link rel="stylesheet" type="text/css" href="./css/phone.css">
     <link rel="stylesheet" type="text/css" href="./css/main.css">
     <link rel="shortcut icon" type="image/svg" href="./img/icon.svg" />
-    <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
 </head>
 
 <body>
 
     <div class="container" style="font-family: 'Roboto'; color: white;">
         <div class="top-info"></div>
-        <div id="swup" class="content">
+        <div id="swup" class="content transition-fade">
             <div style="width: 25%; background-color: slateblue;" class="box left recent">
                 <div class="row" style="justify-content: space-evenly;">
                     <div style="width: 40%;"><img id="im0" width="70px" height="70px"></div>
@@ -101,9 +100,13 @@
         </div>
         <div class="down-info"></div>
     </div>
+    <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
     <script>
-        let options = { LINK_SELECTOR: 'a', debugMode: true, };
-        const swup = new Swup(options); // only this line when included with script tag</script>
+        let options = {
+            LINK_SELECTOR: 'a',
+            debugMode: true,
+        };
+        var swup = new Swup(options);</script>
     <script type="text/javascript" src="./js/phone.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
 </body>
