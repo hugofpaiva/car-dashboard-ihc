@@ -6,7 +6,7 @@ function getLocation() {
     navigator.geolocation.getCurrentPosition((position) => {
       console.log("Geolocalização")
       getWeather(position.coords.latitude, position.coords.longitude);
-    },() => {}, timeout=undefined);
+    },() => {}, {timeout:undefined});
   } else if (localStorage.getItem("Weather") != null) {
     var data = JSON.parse(localStorage.getItem("Weather"));
     console.log("A ir buscar à cache!");
