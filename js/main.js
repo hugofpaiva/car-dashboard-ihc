@@ -11,7 +11,7 @@ var swup = new Swup(options);
 
 function init() {
   if (document.querySelector("#index")) {
-    // something like new Carousel('#carousel')
+    getLocation();
   }
 
   if (document.querySelector("#phone")) {
@@ -49,8 +49,8 @@ function getLocation() {
       () => {},
       { timeout: 1000 }
     );
-  } else if (localStorage.getItem("Weather") != null) {
-    var data = JSON.parse(localStorage.getItem("Weather"));
+  } else if (sessionStorage.getItem("Weather") != null) {
+    var data = JSON.parse(sessionStorage.getItem("Weather"));
     console.log("A ir buscar à cache!");
     updateDom(data);
   }
@@ -65,9 +65,9 @@ function getWeather(lat, long) {
       console.log(data);
       if (data.name != "Shuzenji") {
         updateDom(data);
-        localStorage.setItem("Weather", JSON.stringify(data));
-      } else if (localStorage.getItem("Weather") != null) {
-        data = JSON.parse(localStorage.getItem("Weather"));
+        sessionStorage.setItem("Weather", JSON.stringify(data));
+      } else if (sessionStorage.getItem("Weather") != null) {
+        data = JSON.parse(sessionStorage.getItem("Weather"));
         console.log("A ir buscar à cache!");
         updateDom(data);
       }
@@ -171,15 +171,29 @@ function updateTime() {
 
 // FUNÇÕES DE MANUTENÇÃO
 
+function checkWeather(timer) {
+  if (sessionStorage.getItem("Weather") != null) {
+    clearInterval(timer);
+  }
+};
+
 function main() {
   console.log("A correr o main");
-  getLocation();
+
+  setInterval(updateTime, 20000);
   updateTime();
-}
+
+  if (sessionStorage.getItem("Weather") != null) {
+    getLocation();
+  } else {
+    getLocation();
+    var timer = setInterval(checkWeather, 5000);
+  }
+  setInterval(getLocation, 3600000);
+};
+
 
 main();
-
-setInterval(main, 20000);
 
 window.onbeforeunload = function (e) {
   document.getElementsByClassName("content").className = "out";

@@ -174,7 +174,7 @@ body {
 }
 
 .app-name {
-  font-size: 0.5rem;
+  font-size: 0.65rem;
   margin: 0;
   margin-top: 8px;
   font-weight: 200;
@@ -196,15 +196,16 @@ a:hover, a:visited, a:link, a:active {
 }
 
 .little-weather {
-  font-size: 0.5rem;
+  font-size: 0.8rem;
   margin: 0;
   margin-top: 2px;
-  font-weight: 200;
+  font-weight: 250;
 }
 
 .big-weather {
   margin: 0;
-  font-weight: bold;
+  font-size: 1.2rem;
+  font-weight: bolder;
 }
 
 .air-modal {
@@ -227,10 +228,16 @@ a:hover, a:visited, a:link, a:active {
 }
 
 .air-button {
+
   background-color: rgba(255, 255, 255, 0.95);
   width: 30%;
   height: 100%;
   border-radius: 15% / 50%;
+  text-transform: uppercase;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .air-mini-button {
