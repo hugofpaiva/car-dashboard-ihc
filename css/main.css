@@ -241,7 +241,7 @@ a:hover, a:visited, a:link, a:active {
 }
 
 .transition-fade {
-  transition: 4s;
+  transition: 0.4s;
   opacity: 1;
 }
 

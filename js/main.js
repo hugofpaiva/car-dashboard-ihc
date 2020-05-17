@@ -1,12 +1,21 @@
+let options = {
+  LINK_SELECTOR: "a",
+  debugMode: true,
+};
+var swup = new Swup(options);
 // FUNÇÕES DE TEMPO
 // get location
 function getLocation() {
   console.log(navigator.geolocation);
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition((position) => {
-      console.log("Geolocalização")
-      getWeather(position.coords.latitude, position.coords.longitude);
-    },() => {}, {timeout:1000});
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        console.log("Geolocalização");
+        getWeather(position.coords.latitude, position.coords.longitude);
+      },
+      () => {},
+      { timeout: 1000 }
+    );
   } else if (localStorage.getItem("Weather") != null) {
     var data = JSON.parse(localStorage.getItem("Weather"));
     console.log("A ir buscar à cache!");
@@ -44,8 +53,7 @@ function updateDom(data) {
 
   switch (data.weather[0].main) {
     case "Drizzle":
-      document.getElementById("image-weather").src =
-        "./img/weather/w/rain.svg";
+      document.getElementById("image-weather").src = "./img/weather/w/rain.svg";
       precipitation(50, 15);
       break;
     case "Clouds":
@@ -54,13 +62,11 @@ function updateDom(data) {
       precipitation(20, 0);
       break;
     case "Rain":
-      document.getElementById("image-weather").src =
-        "./img/weather/w/rain.svg";
+      document.getElementById("image-weather").src = "./img/weather/w/rain.svg";
       precipitation(50, 50);
       break;
     case "Snow":
-      document.getElementById("image-weather").src =
-        "./img/weather/w/snow.svg";
+      document.getElementById("image-weather").src = "./img/weather/w/snow.svg";
       precipitation(20, 0);
       break;
     case "Clear":
@@ -133,7 +139,7 @@ function updateTime() {
 // FUNÇÕES DE MANUTENÇÃO
 
 function main() {
-  console.log("A correr o main")
+  console.log("A correr o main");
   getLocation();
   updateTime();
 }
@@ -142,9 +148,9 @@ main();
 
 setInterval(main, 20000);
 
-window.onbeforeunload = function(e){
-  document.getElementsByClassName('content').className = 'out';
-}
+window.onbeforeunload = function (e) {
+  document.getElementsByClassName("content").className = "out";
+};
 
 // FUNÇÕES DE CLICKS
 
