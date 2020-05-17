@@ -9,13 +9,14 @@
     <link rel="stylesheet" type="text/css" href="./css/phone.css">
     <link rel="stylesheet" type="text/css" href="./css/main.css">
     <link rel="shortcut icon" type="image/svg" href="./img/icon.svg" />
+    <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script> 
 </head>
 
 <body>
 
     <div class="container" style="font-family: 'Roboto'; color: white;">
         <div class="top-info"></div>
-        <div class="content">
+        <div id="swup" class="content">
             <div style="width: 25%; background-color: slateblue;"  class="box left recent">
                 <div class="row" style="justify-content: space-evenly;">
                     <div style="width: 40%;"><img id="im0" width="70px" height="70px"></div>
@@ -92,7 +93,9 @@
         </div>
         <div class="down-info"></div>
     </div>
+    <script>const swup = new Swup(); // only this line when included with script tag</script> 
     <script type="text/javascript" src="./js/phone.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
 </body>
 
 </html>
