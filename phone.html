@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="./css/phone.css">
     <link rel="stylesheet" type="text/css" href="./css/main.css">
     <link rel="shortcut icon" type="image/svg" href="./img/icon.svg" />
-    <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script> 
+    <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
 </head>
 
 <body>
@@ -17,22 +17,30 @@
     <div class="container" style="font-family: 'Roboto'; color: white;">
         <div class="top-info"></div>
         <div id="swup" class="content">
-            <div style="width: 25%; background-color: slateblue;"  class="box left recent">
+            <div style="width: 25%; background-color: slateblue;" class="box left recent">
                 <div class="row" style="justify-content: space-evenly;">
                     <div style="width: 40%;"><img id="im0" width="70px" height="70px"></div>
-                    <div style="width: 55%;"><p id="desc0"></p></div>
+                    <div style="width: 55%;">
+                        <p id="desc0"></p>
+                    </div>
                 </div>
                 <div class="row" style="justify-content: space-evenly;">
                     <div style="width: 40%;"><img id="im1" width="70px" height="70px"></div>
-                    <div style="width: 55%;"><p id="desc1"></p></div>
+                    <div style="width: 55%;">
+                        <p id="desc1"></p>
+                    </div>
                 </div>
                 <div class="row" style="justify-content: space-evenly;">
                     <div style="width: 40%;"><img id="im2" width="70px" height="70px"></div>
-                    <div style="width: 55%;"><p id="desc2"></p></div>
+                    <div style="width: 55%;">
+                        <p id="desc2"></p>
+                    </div>
                 </div>
                 <div class="row" style="justify-content: space-evenly;">
                     <div style="width: 40%;"><img id="im3" width="70px" height="70px"></div>
-                    <div style="width: 55%;"><p id="desc3"></p></div>
+                    <div style="width: 55%;">
+                        <p id="desc3"></p>
+                    </div>
                 </div>
             </div>
             <div style="width: 60%;" class="right">
@@ -93,7 +101,9 @@
         </div>
         <div class="down-info"></div>
     </div>
-    <script>const swup = new Swup(); // only this line when included with script tag</script> 
+    <script>
+        let options = { LINK_SELECTOR: 'a', debugMode: true, };
+        const swup = new Swup(options); // only this line when included with script tag</script>
     <script type="text/javascript" src="./js/phone.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
 </body>
