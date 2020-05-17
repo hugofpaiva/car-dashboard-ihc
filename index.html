@@ -27,7 +27,7 @@
             <div class="info" style="justify-content: flex-end;">
                 <p id="music">RFM</p>
                 <div style="display: flex; align-items: center;">
-                    <img src="./img/top-info/wrench.png" width="50px" alt="Wrench">
+                    <img src="./img/top-info/wrench.png" width="60px" alt="Wrench">
                 </div>
             </div>
 
@@ -38,8 +38,17 @@
                 <div id="map"></div>
             </div>
             <div class="right">
-                <div class="box up" style="display: flex;flex-direction: column-reverse;">
-                    <div class="music-controls" id="m-controls"></div>
+                <div class="box up">
+                    <div class="music" style="display: flex;">
+                        <div class="music-controls" id="m-controls">
+                            <div style="display: flex; flex-direction: column;align-items: center; justify-content: center;width: 50%; height: 100%;">
+                            <p id="artist">RFM</p>
+                            <p id="music">Popcorn Time</p>
+                        </div>
+
+                        </div>
+
+                    </div>
                 </div>
                 <div class="box down" style="display: flex;flex-direction: column;">
                     <h4 style="margin:0;">Weather</h4>
@@ -51,7 +60,8 @@
                                 <p class="little-weather">weather</p>
                             </div>
                             <div style="display: flex; flex-direction: column;align-items: center;">
-                                <p class="big-weather"><span id="wind">5</span><span style="font-size: x-small;">km/h</span></p>
+                                <p class="big-weather"><span id="wind">5</span><span
+                                        style="font-size: x-small;">km/h</span></p>
                                 <p class="little-weather">wind</p>
                             </div>
                         </div>
@@ -62,18 +72,21 @@
                                 <p class="little-weather">inside</p>
                             </div>
                             <div style="display: flex; flex-direction: column;align-items: center;">
-                                <p class="big-weather"><span id="temperature2">22</span><span style="font-size: x-small;">ºC</span></p>
+                                <p class="big-weather"><span id="temperature2">22</span><span
+                                        style="font-size: x-small;">ºC</span></p>
                                 <p class="little-weather">outside</p>
                             </div>
                         </div>
                         <div class="weather-info">
                             <img src="./img/weather/watering.svg" width="60px" alt="Temperature">
                             <div style="display: flex; flex-direction: column;align-items: center;">
-                                <p class="big-weather"><span id="precipitacion">15</span><span style="font-size: x-small;">%</span></p>
+                                <p class="big-weather"><span id="precipitacion">15</span><span
+                                        style="font-size: x-small;">%</span></p>
                                 <p class="little-weather">precipitacion</p>
                             </div>
                             <div style="display: flex; flex-direction: column;align-items: center;">
-                                <p class="big-weather"><span id="humidity">60</span><span style="font-size: x-small;">%</span></p>
+                                <p class="big-weather"><span id="humidity">60</span><span
+                                        style="font-size: x-small;">%</span></p>
                                 <p class="little-weather">humidity</p>
                             </div>
                         </div>
@@ -108,6 +121,11 @@
                 <div class="menu">
                     <img src="./img/down-info/tesla.png" width="105px" alt="Car">
                     <p class="app-name">Car Info</p>
+                </div>
+
+                <div class="menu">
+                    <img src="./img/down-info/door.svg" width="40px" alt="Car">
+                    <p class="app-name">Doors</p>
                 </div>
                 <div class="menu">
                     <img src="./img/down-info/navigation.svg" width="40px" alt="Navigation">

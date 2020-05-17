@@ -5,8 +5,10 @@ function getLocation() {
     navigator.geolocation.getCurrentPosition((position) => {
       getWeather(position.coords.latitude, position.coords.longitude);
     });
-  } else {
-    loc.innerHTML = "Geolocation is not supported by this browser.";
+  } else if (localStorage.getItem("Weather") != null) {
+    var data = JSON.parse(localStorage.getItem("Weather"));
+    console.log("A ir buscar à cache!");
+    updateDom(data);
   }
 }
 
@@ -17,44 +19,13 @@ function getWeather(lat, long) {
     .then((resp) => resp.json())
     .then((data) => {
       console.log(data);
-      document.getElementById("temperature").innerHTML = data.main.temp.toFixed(
-        0
-      );
-      document.getElementById("temperature2").innerHTML = data.main.temp.toFixed(
-        0
-      );
-      document.getElementById("wind").innerHTML = data.wind.speed;
-      document.getElementById("humidity").innerHTML = data.main.humidity;
-      document.getElementById("weather").innerHTML = data.weather[0].main;
-
-      switch(data.weather[0].main) {
-        case "Drizzle":
-          document.getElementById("image-weather").src = "../img/weather/w/rain.svg";
-          break;
-        case "Clouds":
-          document.getElementById("image-weather").src = "../img/weather/w/cloudy.svg";
-          precipitation();
-          break;
-        case "Rain":
-          document.getElementById("image-weather").src = "../img/weather/w/rain.svg";
-          break;
-        case "Snow":
-          document.getElementById("image-weather").src = "../img/weather/w/snow.svg";
-          break;
-        case "Clear":
-          document.getElementById("image-weather").src = "../img/weather/w/sun.svg";
-          precipitation();
-          break;
-        case "Thunderstorm":
-          document.getElementById("image-weather").src = "../img/weather/w/thunder.svg";
-          precipitation();
-          break;
-        case "Mist":
-          document.getElementById("image-weather").src = "../img/weather/w/cloudy.svg";
-          precipitation();
-          break;
-        default:
-          break;
+      if (data.name != "Shuzenji") {
+        updateDom(data);
+        localStorage.setItem("Weather", JSON.stringify(data));
+      } else if (localStorage.getItem("Weather") != null) {
+        data = JSON.parse(localStorage.getItem("Weather"));
+        console.log("A ir buscar à cache!");
+        updateDom(data);
       }
     })
     .catch(function (err) {
@@ -62,8 +33,55 @@ function getWeather(lat, long) {
     });
 }
 
-function precipitation() {
-  var preci = Math.floor(Math.random() * 35) + 15;
+function updateDom(data) {
+  document.getElementById("temperature").innerHTML = data.main.temp.toFixed(0);
+  document.getElementById("temperature2").innerHTML = data.main.temp.toFixed(0);
+  document.getElementById("wind").innerHTML = data.wind.speed;
+  document.getElementById("humidity").innerHTML = data.main.humidity;
+  document.getElementById("weather").innerHTML = data.weather[0].main;
+
+  switch (data.weather[0].main) {
+    case "Drizzle":
+      document.getElementById("image-weather").src =
+        "../img/weather/w/rain.svg";
+      precipitation(50, 15);
+      break;
+    case "Clouds":
+      document.getElementById("image-weather").src =
+        "../img/weather/w/cloudy.svg";
+      precipitation(20, 0);
+      break;
+    case "Rain":
+      document.getElementById("image-weather").src =
+        "../img/weather/w/rain.svg";
+      precipitation(50, 50);
+      break;
+    case "Snow":
+      document.getElementById("image-weather").src =
+        "../img/weather/w/snow.svg";
+      precipitation(20, 0);
+      break;
+    case "Clear":
+      document.getElementById("image-weather").src = "../img/weather/w/sun.svg";
+      precipitation(10, 0);
+      break;
+    case "Thunderstorm":
+      document.getElementById("image-weather").src =
+        "../img/weather/w/thunder.svg";
+      precipitation(50, 50);
+      break;
+    case "Mist":
+      document.getElementById("image-weather").src =
+        "../img/weather/w/cloudy.svg";
+      precipitation(35, 15);
+      break;
+    default:
+      break;
+  }
+}
+
+function precipitation(top, down) {
+  var preci = Math.floor(Math.random() * top) + down;
   document.getElementById("precipitacion").innerHTML = preci;
 }
 
@@ -112,11 +130,11 @@ function updateTime() {
 
 // FUNÇÕES DE MANUTENÇÃO
 
-function main(){
-    getLocation();
-    updateTime();
+function main() {
+  getLocation();
+  updateTime();
 }
 
-main()
+main();
 
 setInterval(main, 20000);
