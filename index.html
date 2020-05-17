@@ -13,7 +13,7 @@
         rel="stylesheet">
 </head>
 
-<body>
+<body onresize="airResize()">
 
     <div class="container">
         <div class="top-info">
@@ -33,6 +33,7 @@
 
 
         </div>
+        <div class="air-modal"></div>
         <div class="content">
             <div class="box left">
                 <div id="map"></div>
@@ -97,7 +98,7 @@
             </div>
         </div>
         <div class="down-info">
-            <div class="air-conditioner">
+            <div class="air-conditioner" onclick="openAir()">
                 <div class="air-box">
                     <p id="airtemp">22ºC</p>
                     <img src="./img/down-info/air/air.svg" width="40px" alt="Airconditioner">
@@ -153,7 +154,10 @@
                 </div>
                 <p class="app-name" style="margin-top:5px">Heated Seats</p>
             </div>
+           
         </div>
+
+        
     </div>
     </div>
 

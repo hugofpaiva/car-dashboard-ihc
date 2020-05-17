@@ -201,6 +201,14 @@ body {
   font-weight: bold;
 }
 
+.air-modal {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  border-radius: 2.5%;
+  background-color: rgba(1, 4, 42, 0.95);
+}
+
 /*
 
 * Animations

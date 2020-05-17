@@ -138,3 +138,35 @@ function main() {
 main();
 
 setInterval(main, 20000);
+
+// FUNÇÕES DE CLICKS
+
+function openAir() {
+  var display = getComputedStyle(document.querySelector(".air-modal")).display;
+
+  if (display === "block") {
+    airResize();
+    document.getElementsByClassName("air-modal")[0].style.display = "none";
+  } else if (display === "none") {
+    airResize();
+    document.getElementsByClassName("air-modal")[0].style.display = "inline";
+  } else {
+    console.log("Erro ao abrir a modal!");
+  }
+}
+
+function airResize() {
+  var top = document.querySelector(".content").getBoundingClientRect().top;
+  document.getElementsByClassName("air-modal")[0].style.top = top + "px";
+
+  var heigth = document.querySelector(".content").offsetHeight;
+  document.getElementsByClassName("air-modal")[0].style.height = heigth + "px";
+
+  var width = document.querySelector(".content").offsetWidth;
+  document.getElementsByClassName("air-modal")[0].style.left =
+    width * 0.01 +
+    document.querySelector(".content").getBoundingClientRect().left +
+    "px";
+  document.getElementsByClassName("air-modal")[0].style.width =
+    width * 0.5 + "px";
+}
