@@ -6,7 +6,7 @@ function getLocation() {
     navigator.geolocation.getCurrentPosition((position) => {
       console.log("Geolocalização")
       getWeather(position.coords.latitude, position.coords.longitude);
-    },() => {}, {timeout:undefined});
+    },() => {}, {timeout:1000});
   } else if (localStorage.getItem("Weather") != null) {
     var data = JSON.parse(localStorage.getItem("Weather"));
     console.log("A ir buscar à cache!");
@@ -45,22 +45,22 @@ function updateDom(data) {
   switch (data.weather[0].main) {
     case "Drizzle":
       document.getElementById("image-weather").src =
-        "../img/weather/w/rain.svg";
+        "./img/weather/w/rain.svg";
       precipitation(50, 15);
       break;
     case "Clouds":
       document.getElementById("image-weather").src =
-        "../img/weather/w/cloudy.svg";
+        "./img/weather/w/cloudy.svg";
       precipitation(20, 0);
       break;
     case "Rain":
       document.getElementById("image-weather").src =
-        "../img/weather/w/rain.svg";
+        "./img/weather/w/rain.svg";
       precipitation(50, 50);
       break;
     case "Snow":
       document.getElementById("image-weather").src =
-        "../img/weather/w/snow.svg";
+        "./img/weather/w/snow.svg";
       precipitation(20, 0);
       break;
     case "Clear":
@@ -69,12 +69,12 @@ function updateDom(data) {
       break;
     case "Thunderstorm":
       document.getElementById("image-weather").src =
-        "../img/weather/w/thunder.svg";
+        "./img/weather/w/thunder.svg";
       precipitation(50, 50);
       break;
     case "Mist":
       document.getElementById("image-weather").src =
-        "../img/weather/w/cloudy.svg";
+        "./img/weather/w/cloudy.svg";
       precipitation(35, 15);
       break;
     default:
@@ -142,17 +142,20 @@ main();
 
 setInterval(main, 20000);
 
+window.onbeforeunload = function(e){
+  document.getElementsByClassName('content').className = 'out';
+}
+
 // FUNÇÕES DE CLICKS
 
 function openAir() {
   var display = getComputedStyle(document.querySelector(".air-modal")).display;
 
   if (display === "block") {
-    airResize();
     document.getElementsByClassName("air-modal")[0].style.display = "none";
   } else if (display === "none") {
     airResize();
-    document.getElementsByClassName("air-modal")[0].style.display = "inline";
+    document.getElementsByClassName("air-modal")[0].style.display = "flex";
   } else {
     console.log("Erro ao abrir a modal!");
   }
