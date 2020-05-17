@@ -1,6 +1,7 @@
 // FUNÇÕES DE TEMPO
 // get location
 function getLocation() {
+  console.log(navigator.geolocation);
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
       console.log("Geolocalização")
