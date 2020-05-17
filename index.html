@@ -83,7 +83,7 @@
                     </div>
                     <div class="box down" style="display: flex;flex-direction: column;">
                         <h4 style="margin:0;">Weather</h4>
-                        <div class="weather">
+                        <div id="index" class="weather">
                             <div class="weather-info">
                                 <img id="image-weather" src="./img/weather/w/sun.svg" width="60px" alt="Weather">
                                 <div style="display: flex; flex-direction: column;align-items: center;">
@@ -136,10 +136,12 @@
                 </div>
                 <div class="v-line"></div>
                 <div class="navbar">
-                    <div class="menu">
-                        <img src="./img/down-info/home.svg" width="40px" alt="Home">
-                        <p class="app-name">Home</p>
-                    </div>
+                    <a href="./index.html" class="transition-fade">
+                        <div class="menu">
+                            <img src="./img/down-info/home.svg" width="40px" alt="Home">
+                            <p class="app-name">Home</p>
+                        </div>
+                    </a>
                     <a href="./phone.html" class="transition-fade">
                         <div class="menu">
                             <img src="./img/down-info/phone.svg" width="40px" alt="Phone">
@@ -160,10 +162,13 @@
                         <img src="./img/down-info/door.svg" width="40px" alt="Car">
                         <p class="app-name">Doors</p>
                     </div>
-                    <div class="menu">
-                        <img src="./img/down-info/navigation.svg" width="40px" alt="Navigation">
-                        <p class="app-name">Navi</p>
-                    </div>
+
+                    <a href="./maps.html" class="transition-fade">
+                        <div class="menu">
+                            <img src="./img/down-info/navigation.svg" width="40px" alt="Navigation">
+                            <p class="app-name">Navi</p>
+                        </div>
+                    </a>
 
                     <div class="menu">
                         <img src="./img/down-info/apps.svg" width="40px" alt="Apps">
@@ -193,11 +198,13 @@
 
         </div>
     </div>
-    <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
-    <script type="text/javascript" src="./js/maps.js"></script>
+    <script src="./node_modules/swup/dist/swup.min.js"></script>
+    <script src="./node_modules/@swup/body-class-plugin/dist/SwupBodyClassPlugin.min.js"></script>
+
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ1LJWoi_zWZXbi4Oqzm3JwhHAqT-iBCU&libraries=places&callback=initAutocomplete"
         async defer></script>
+    <script type="text/javascript" src="./js/maps.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
 </body>
 

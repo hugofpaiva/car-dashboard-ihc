@@ -1,11 +1,41 @@
+console.log("ENTREI MAIN!");
 let options = {
   linkSelector:
     'a[href^="' +
     window.location.origin +
     '"]:not([data-no-swup]), a[href^="./"]:not([data-no-swup]), a[href^="/"]:not([data-no-swup]), a[href^="#"]:not([data-no-swup])',
   debugMode: true,
+  plugins: [new SwupBodyClassPlugin()],
 };
 var swup = new Swup(options);
+
+function init() {
+  if (document.querySelector("#index")) {
+    // something like new Carousel('#carousel')
+  }
+
+  if (document.querySelector("#phone")) {
+    var recentcalls = [
+      ["./img/pedro.jpeg", "Pedro<br>today"],
+      ["./img/fabiana.jpeg", "Fabiana<br>yesterday"],
+      ["./img/alberto.jpeg", "Alberto<br>yesterday"],
+      ["./img/alfredo.jpeg", "Alfredo<br>yesterday"],
+    ];
+
+    for (i = 0; i < 4; i++) {
+      document.getElementById("desc" + i).innerHTML = recentcalls[i][1];
+      document.getElementById("im" + i).src = recentcalls[i][0];
+    }
+  }
+
+  if (document.querySelector("#map")) {
+    initAutocomplete();
+  }
+}
+
+// this event runs for every page view after initial load
+swup.on("contentReplaced", init);
+
 // FUNÇÕES DE TEMPO
 // get location
 function getLocation() {
@@ -160,7 +190,7 @@ window.onbeforeunload = function (e) {
 function openAir() {
   var display = getComputedStyle(document.querySelector(".air-modal")).display;
 
-  if (display === "block") {
+  if (display === "flex") {
     document.getElementsByClassName("air-modal")[0].style.display = "none";
   } else if (display === "none") {
     airResize();
