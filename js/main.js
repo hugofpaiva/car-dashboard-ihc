@@ -31,10 +31,39 @@ function init() {
   if (document.querySelector("#map")) {
     initAutocomplete();
   }
+
+  if (document.querySelector("#car")) {
+    var circles = [circle1, circle2];
+    var perc = [0.5, 0.8];
+    var count = 0;
+
+    circles.forEach((el) => {
+      console.log(el);
+      var bar = new ProgressBar.Circle(el, {
+        color: "#58C2F7",
+        trailColor: "#fff",
+        trailWidth: 8,
+        duration: 1400,
+        easing: "easeOut",
+        strokeWidth: 8,
+        from: { color: "#58C2F7", a: 0 },
+        to: { color: "#58C2F7", a: 1 },
+        // Set default step function for all animate calls
+        step: function (state, circle) {
+          circle.path.setAttribute("stroke", state.color);
+        },
+      });
+
+      bar.animate(perc[count]);
+      count++;
+    }); // Number from 0.0 to 1.0
+  }
 }
+
 
 // this event runs for every page view after initial load
 swup.on("contentReplaced", init);
+init();
 
 // FUNÇÕES DE TEMPO
 // get location
@@ -175,7 +204,7 @@ function checkWeather(timer) {
   if (sessionStorage.getItem("Weather") != null) {
     clearInterval(timer);
   }
-};
+}
 
 function main() {
   console.log("A correr o main");
@@ -190,8 +219,7 @@ function main() {
     var timer = setInterval(checkWeather, 5000);
   }
   setInterval(getLocation, 3600000);
-};
-
+}
 
 main();
 
