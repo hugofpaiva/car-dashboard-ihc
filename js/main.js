@@ -70,7 +70,7 @@ function updateDom(data) {
       precipitation(20, 0);
       break;
     case "Clear":
-      document.getElementById("image-weather").src = "../img/weather/w/sun.svg";
+      document.getElementById("image-weather").src = "./img/weather/w/sun.svg";
       precipitation(10, 0);
       break;
     case "Thunderstorm":
