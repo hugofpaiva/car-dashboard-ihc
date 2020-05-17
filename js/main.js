@@ -3,6 +3,7 @@
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
+      console.log("Geolocalização")
       getWeather(position.coords.latitude, position.coords.longitude);
     });
   } else if (localStorage.getItem("Weather") != null) {
@@ -131,6 +132,7 @@ function updateTime() {
 // FUNÇÕES DE MANUTENÇÃO
 
 function main() {
+  console.log("A correr o main")
   getLocation();
   updateTime();
 }
