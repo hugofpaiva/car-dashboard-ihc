@@ -38,7 +38,6 @@ function init() {
     var count = 0;
 
     circles.forEach((el) => {
-      console.log(el);
       var bar = new ProgressBar.Circle(el, {
         color: "#58C2F7",
         trailColor: "#fff",
