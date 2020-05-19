@@ -63,7 +63,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 2.5%;
+  border-radius: 1%;
   background-color: #01042A;
 }
 
@@ -114,7 +114,7 @@ body {
 .heated-seats {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   width: 17.5%;
   height: 100%;
@@ -289,7 +289,7 @@ html.is-animating .transition-fade {
 .car {
   -webkit-animation: fadeInRight;
   animation: fadeInRight;
-  -webkit-animation-duration: 1.4s;
+  -webkit-animation-duration: 1s;
   animation-duration: 1.4s;
   -webkit-transition-timing-function: linear;
   -o-transition-timing-function: linear;
@@ -303,6 +303,21 @@ html.is-animating .transition-fade {
   animation-duration: 1.75s;
   transition-timing-function: linear;
   animation-fill-mode: both;
+}
+
+.button-pressure {
+  background-color: #01042A;
+  width: 15%;
+  height: 50%;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 20px 5px rgba(255, 255, 255, 0.1);
+
+}
+.button-pressure:active {
+  box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.5);
 }
 
 /* 

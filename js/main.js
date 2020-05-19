@@ -1,4 +1,3 @@
-console.log("ENTREI MAIN!");
 let options = {
   linkSelector:
     'a[href^="' +
@@ -12,7 +11,13 @@ var swup = new Swup(options);
 function init() {
   try {
     if (document.querySelector("#index")) {
-      getLocation();
+      if (sessionStorage.getItem("Weather") != null) {
+        getLocation();
+      } else {
+        getLocation();
+        var timer = setInterval(checkWeather, 5000);
+      }
+      setInterval(getLocation, 3600000);
     }
 
     if (document.querySelector("#phone")) {
@@ -76,7 +81,11 @@ function getLocation() {
       (position) => {
         console.log("Geolocalização");
         getWeather(position.coords.latitude, position.coords.longitude);
-      }, (err) => { console.log(err)}, { timeout: undefined}
+      },
+      (err) => {
+        console.log(err);
+      },
+      { maximumAge: 60000, timeout: 5000, enableHighAccuracy: true }
     );
   } else if (sessionStorage.getItem("Weather") != null) {
     var data = JSON.parse(sessionStorage.getItem("Weather"));
@@ -203,6 +212,8 @@ function updateTime() {
 function checkWeather(timer) {
   if (sessionStorage.getItem("Weather") != null) {
     clearInterval(timer);
+  } else {
+    getLocation();
   }
 }
 
@@ -211,14 +222,6 @@ function main() {
 
   setInterval(updateTime, 20000);
   updateTime();
-
-  if (sessionStorage.getItem("Weather") != null) {
-    getLocation();
-  } else {
-    getLocation();
-    var timer = setInterval(checkWeather, 5000);
-  }
-  setInterval(getLocation, 3600000);
 }
 
 main();
