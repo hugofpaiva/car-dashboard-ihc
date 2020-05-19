@@ -287,6 +287,20 @@ html.is-animating .transition-fade {
   animation: fadeIn 3s ease-out reverse both;
 }
 
+.car {
+  animation: fadeInRight;
+  animation-duration: 1.4s;
+  transition-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+.wheel {
+  animation: rotate;
+  animation-duration: 1.75s;
+  transition-timing-function: linear;
+  animation-fill-mode: both;
+}
+
 /* 
 
 * Keyframes
@@ -300,6 +314,17 @@ html.is-animating .transition-fade {
   100% {
     opacity: 1;
   }
+}
+
+@keyframes rotate {
+  0%{
+    transform: rotate(0deg)
+   }
+   
+   
+  100%{
+    transform: rotate(-500deg)
+   }
 }
 
 @keyframes fadeInRight {

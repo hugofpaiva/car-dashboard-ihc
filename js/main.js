@@ -10,55 +10,58 @@ let options = {
 var swup = new Swup(options);
 
 function init() {
-  if (document.querySelector("#index")) {
-    getLocation();
-  }
-
-  if (document.querySelector("#phone")) {
-    var recentcalls = [
-      ["./img/pedro.jpeg", "Pedro<br>today"],
-      ["./img/fabiana.jpeg", "Fabiana<br>yesterday"],
-      ["./img/alberto.jpeg", "Alberto<br>yesterday"],
-      ["./img/alfredo.jpeg", "Alfredo<br>yesterday"],
-    ];
-
-    for (i = 0; i < 4; i++) {
-      document.getElementById("desc" + i).innerHTML = recentcalls[i][1];
-      document.getElementById("im" + i).src = recentcalls[i][0];
+  try {
+    if (document.querySelector("#index")) {
+      getLocation();
     }
-  }
 
-  if (document.querySelector("#map")) {
-    initAutocomplete();
-  }
+    if (document.querySelector("#phone")) {
+      var recentcalls = [
+        ["./img/pedro.jpeg", "Pedro<br>today"],
+        ["./img/fabiana.jpeg", "Fabiana<br>yesterday"],
+        ["./img/alberto.jpeg", "Alberto<br>yesterday"],
+        ["./img/alfredo.jpeg", "Alfredo<br>yesterday"],
+      ];
 
-  if (document.querySelector("#car")) {
-    var circles = [circle1, circle2];
-    var perc = [0.5, 0.8];
-    var count = 0;
+      for (i = 0; i < 4; i++) {
+        document.getElementById("desc" + i).innerHTML = recentcalls[i][1];
+        document.getElementById("im" + i).src = recentcalls[i][0];
+      }
+    }
 
-    circles.forEach((el) => {
-      var bar = new ProgressBar.Circle(el, {
-        color: "#58C2F7",
-        trailColor: "#fff",
-        trailWidth: 8,
-        duration: 1400,
-        easing: "easeOut",
-        strokeWidth: 8,
-        from: { color: "#58C2F7", a: 0 },
-        to: { color: "#58C2F7", a: 1 },
-        // Set default step function for all animate calls
-        step: function (state, circle) {
-          circle.path.setAttribute("stroke", state.color);
-        },
-      });
+    if (document.querySelector("#map")) {
+      initAutocomplete();
+    }
 
-      bar.animate(perc[count]);
-      count++;
-    }); // Number from 0.0 to 1.0
+    if (document.querySelector("#car")) {
+      var circles = [circle1, circle2];
+      var perc = [0.5, 0.8];
+      var count = 0;
+
+      circles.forEach((el) => {
+        var bar = new ProgressBar.Circle(el, {
+          color: "#58C2F7",
+          trailColor: "#fff",
+          trailWidth: 8,
+          duration: 1400,
+          easing: "easeOut",
+          strokeWidth: 8,
+          from: { color: "#58C2F7", a: 0 },
+          to: { color: "#58C2F7", a: 1 },
+          // Set default step function for all animate calls
+          step: function (state, circle) {
+            circle.path.setAttribute("stroke", state.color);
+          },
+        });
+
+        bar.animate(perc[count]);
+        count++;
+      }); // Number from 0.0 to 1.0
+    }
+  } catch (error) {
+    console.error(error);
   }
 }
-
 
 // this event runs for every page view after initial load
 swup.on("contentReplaced", init);
