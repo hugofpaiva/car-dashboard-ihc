@@ -90,7 +90,7 @@ function getLocation() {
       (err) => {
         console.log(err);
       },
-      { maximumAge: 60000, timeout: 5000, enableHighAccuracy: false }
+      {timeout: undefined}
     );
   } else if (sessionStorage.getItem("Weather") != null) {
     var data = JSON.parse(sessionStorage.getItem("Weather"));
