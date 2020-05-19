@@ -18,6 +18,10 @@ function init() {
         var timer = setInterval(checkWeather, 5000);
       }
       setInterval(getLocation, 3600000);
+
+
+      
+
     }
 
     if (document.querySelector("#phone")) {
@@ -56,6 +60,7 @@ function init() {
           // Set default step function for all animate calls
           step: function (state, circle) {
             circle.path.setAttribute("stroke", state.color);
+            circle.setText("ASDasd");
           },
         });
 
@@ -85,7 +90,7 @@ function getLocation() {
       (err) => {
         console.log(err);
       },
-      { maximumAge: 60000, timeout: 5000, enableHighAccuracy: true }
+      { maximumAge: 60000, timeout: 5000, enableHighAccuracy: false }
     );
   } else if (sessionStorage.getItem("Weather") != null) {
     var data = JSON.parse(sessionStorage.getItem("Weather"));
@@ -259,4 +264,24 @@ function airResize() {
     "px";
   document.getElementsByClassName("air-modal")[0].style.width =
     width * 0.5 + "px";
+}
+
+
+function triggerMusic() {
+  var bar = new ProgressBar.Line( mslider, {
+    strokeWidth: 4,
+    easing: 'linear',
+    duration: 100400,
+    color: '#FFEA82',
+    trailColor: '#eee',
+    trailWidth: 1,
+    svgStyle: {width: '100%', height: '100%'}
+  });
+  
+  bar.animate(1.0);
+  progressBar.animate(0.3, {
+    duration: 800
+})
+  
+  
 }
