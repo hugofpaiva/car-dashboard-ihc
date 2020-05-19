@@ -218,6 +218,16 @@ a:hover, a:visited, a:link, a:active {
   background-color: rgba(1, 4, 42, 0.95);
 }
 
+.settings-modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 2;
+  border-radius: 2.5%;
+  background-color: rgba(1, 4, 42, 0.95);
+}
+
 .air-flex {
   display: flex;
   flex-direction: column;
@@ -242,7 +252,7 @@ a:hover, a:visited, a:link, a:active {
 .air-mini-button {
   border-radius: 50%;
   width: 10%;
-  height: 20%;
+  height: 19%;
   background-color: rgba(255, 255, 255, 0.95);
 }
 
@@ -314,17 +324,24 @@ html.is-animating .transition-fade {
   justify-content: center;
   align-items: center;
   box-shadow: 0px 0px 20px 5px rgba(255, 255, 255, 0.1);
-
 }
+
 .button-pressure:active {
   box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.5);
 }
 
-#mslider{
+#mslider {
   width: 100%;
   height: 15px;
 }
 
+.box-fadein {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.box-fadeout {
+  animation: fadeIn 0.5s ease-out reverse;
+}
 /* 
 
 * Keyframes

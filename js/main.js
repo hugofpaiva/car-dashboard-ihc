@@ -18,10 +18,6 @@ function init() {
         var timer = setInterval(checkWeather, 5000);
       }
       setInterval(getLocation, 3600000);
-
-
-      
-
     }
 
     if (document.querySelector("#phone")) {
@@ -90,7 +86,7 @@ function getLocation() {
       (err) => {
         console.log(err);
       },
-      {timeout: undefined}
+      { timeout: undefined }
     );
   } else if (sessionStorage.getItem("Weather") != null) {
     var data = JSON.parse(sessionStorage.getItem("Weather"));
@@ -250,6 +246,19 @@ function openAir() {
   }
 }
 
+function openSettings() {
+  var display = getComputedStyle(document.querySelector(".settings-modal")).display;
+
+  if (display === "flex") {
+    document.getElementsByClassName("settings-modal")[0].style.display = "none";
+  } else if (display === "none") {
+    airResize();
+    document.getElementsByClassName("settings-modal")[0].style.display = "flex";
+  } else {
+    console.log("Erro ao abrir a modal!");
+  }
+}
+
 function airResize() {
   var top = document.querySelector(".content").getBoundingClientRect().top;
   document.getElementsByClassName("air-modal")[0].style.top = top + "px";
@@ -259,29 +268,47 @@ function airResize() {
 
   var width = document.querySelector(".content").offsetWidth;
   document.getElementsByClassName("air-modal")[0].style.left =
-    width * 0.01 +
+    width * 0.025 +
     document.querySelector(".content").getBoundingClientRect().left +
     "px";
   document.getElementsByClassName("air-modal")[0].style.width =
-    width * 0.5 + "px";
+    width * 0.45 + "px";
 }
 
+function resize() {
+  airResize();
+  settingsResize();
+}
+
+function settingsResize() {
+  var top = document.querySelector(".content").getBoundingClientRect().top;
+  document.getElementsByClassName("settings-modal")[0].style.top = top + "px";
+
+  var heigth = document.querySelector(".content").offsetHeight;
+  document.getElementsByClassName("settings-modal")[0].style.height = heigth + "px";
+
+  var width = document.querySelector(".content").offsetWidth;
+  document.getElementsByClassName("settings-modal")[0].style.left =
+    width * 0.525 +
+    document.querySelector(".content").getBoundingClientRect().left +
+    "px";
+  document.getElementsByClassName("settings-modal")[0].style.width =
+    width * 0.45 + "px";
+}
 
 function triggerMusic() {
-  var bar = new ProgressBar.Line( mslider, {
+  var bar = new ProgressBar.Line(mslider, {
     strokeWidth: 4,
-    easing: 'linear',
+    easing: "linear",
     duration: 100400,
-    color: '#FFEA82',
-    trailColor: '#eee',
+    color: "#FFEA82",
+    trailColor: "#eee",
     trailWidth: 1,
-    svgStyle: {width: '100%', height: '100%'}
+    svgStyle: { width: "100%", height: "100%" },
   });
-  
+
   bar.animate(1.0);
   progressBar.animate(0.3, {
-    duration: 800
-})
-  
-  
+    duration: 800,
+  });
 }

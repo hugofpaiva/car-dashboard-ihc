@@ -14,7 +14,7 @@
 
 </head>
 
-<body onresize="airResize()">
+<body onresize="resize()">
 
     <div class="container">
         <div class="top-info">
@@ -27,14 +27,15 @@
 
             <div class="info" style="justify-content: flex-end;">
                 <p id="music">RFM</p>
-                <div style="display: flex; align-items: center;">
+                <div style="display: flex; align-items: center;" onclick="openSettings()">
                     <img src="./img/top-info/wrench.png" width="60px" alt="Wrench">
                 </div>
             </div>
 
 
         </div>
-        <div class="air-modal">
+        <div class="settings-modal box-fadein"></div>
+        <div class="air-modal box-fadein">
             <div class="air-flex">
                 <div style="width: 100%; height: 25%;">
                     <div style="display: flex; justify-content: space-between; width: 100%; align-items: flex-start;">
