@@ -76,9 +76,7 @@ function getLocation() {
       (position) => {
         console.log("Geolocalização");
         getWeather(position.coords.latitude, position.coords.longitude);
-      },
-      () => {},
-      { timeout: 1000 }
+      }, (err) => { console.log(err)}, { timeout: undefined}
     );
   } else if (sessionStorage.getItem("Weather") != null) {
     var data = JSON.parse(sessionStorage.getItem("Weather"));
