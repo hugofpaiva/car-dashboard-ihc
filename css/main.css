@@ -285,6 +285,23 @@ a:hover, a:visited, a:link, a:active {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
+.slider {
+
+
+  width: 100%;
+  /* Full-width */
+  height: 100%;
+
+  /* Grey background */
+  -webkit-appearance: slider-vertical;
+
+
+}
+
+
+
+
+
 .circle {
   width: 20%;
   height: 20%;
@@ -376,11 +393,12 @@ html.is-animating .transition-fade {
   animation: fadeIn 0.5s ease-out reverse;
 }
 
-.consumos p{
-margin: 0;
-margin-top: 0.7rem ;
-text-align: center;
+.consumos p {
+  margin: 0;
+  margin-top: 0.7rem;
+  text-align: center;
 }
+
 /* 
 
 * Keyframes
