@@ -21,7 +21,7 @@ function init() {
     }
 
     if (document.querySelector("#phone")) {
-      phone()
+      phone();
     }
 
     if (document.querySelector("#map")) {
@@ -46,10 +46,20 @@ function init() {
           // Set default step function for all animate calls
           step: function (state, circle) {
             circle.path.setAttribute("stroke", state.color);
-            circle.setText("ASDasd");
+            if (el == circle1) {
+              circle.setText(
+                '<span style="font-weight:bold">2</span> <span class="opacity-letters">bar</span>'
+              );
+            } else {
+              circle.setText(
+                '<span style="font-weight:bold">500</span> <span class="opacity-letters">km</span>'
+              );
+            }
           },
         });
-
+        bar.text.style.margin = "30% 0";
+        bar.text.style.color = "white";
+        bar.text.style.fontFamily = "Montserrat";
         bar.animate(perc[count]);
         count++;
       }); // Number from 0.0 to 1.0
@@ -237,7 +247,8 @@ function openAir() {
 }
 
 function openSettings() {
-  var display = getComputedStyle(document.querySelector(".settings-modal")).display;
+  var display = getComputedStyle(document.querySelector(".settings-modal"))
+    .display;
 
   if (display === "flex") {
     document.getElementsByClassName("settings-modal")[0].style.display = "none";
@@ -275,7 +286,8 @@ function settingsResize() {
   document.getElementsByClassName("settings-modal")[0].style.top = top + "px";
 
   var heigth = document.querySelector(".content").offsetHeight;
-  document.getElementsByClassName("settings-modal")[0].style.height = heigth + "px";
+  document.getElementsByClassName("settings-modal")[0].style.height =
+    heigth + "px";
 
   var width = document.querySelector(".content").offsetWidth;
   document.getElementsByClassName("settings-modal")[0].style.left =
