@@ -53,25 +53,25 @@
                     </div>
                 </div>
                 <div style="width: 100%;height: 10%;display: flex; justify-content: space-around; align-items: center;">
-                    <div class="air-button">OFF</div>
+                    <div onclick="turnOnOffAir(this)" class="air-button">OFF</div>
                     <div
                         style="display: flex; flex-direction: column;width: 25%;height: 160%; align-items: center; justify-content: center;">
-                        <div class="air-button"
+                        <div class="air-button" id="fan-air"
                             style="width: 100%;height: 50%; display: flex; justify-content: space-between; align-items: center;">
                             <div class="air-mini-button-mini-mini">
                                 <p>-</p>
                             </div>
-                            <img src=" ./img/down-info/air/fan.svg" width="25px" style="filter: brightness(0)"
+                            <img src=" ./img/down-info/air/fan.svg" width="25px" style="filter: brightness(1)"
                                 alt="Fan">
                             <div class="air-mini-button-mini-mini">+</div>
                         </div>
                     </div>
-                    <div class="air-button">AUTO</div>
+                    <div onclick="turnOnOffAuto(this)" class="air-button">AUTO</div>
                 </div>
                 <div
                     style="width: 100%; height:50%; display: flex; align-items: center; justify-content: space-around;">
-                    <div class="air-mini-button" style="display: flex; align-items: center; justify-content: center;">
-                        <img src="./img/down-info/air/front-defroster.svg" width="40px" alt="Front Defroster">
+                    <div class="air-mini-button" id="frontDefrosterDiv" style="display: flex; align-items: center; justify-content: center;">
+                        <img id="frontDefrosterImg" src="./img/down-info/air/front-defroster.svg" style="filter: brightness(1)" width="40px" alt="Front Defroster">
                     </div>
                     <div class="air-button" style="transform: rotate(90deg); width: 30%; height: 20%;">
                         <div
@@ -89,8 +89,8 @@
                                     <p class="big-weather" style="transform: rotate(-90deg);"">22</p>
                             <div class=" air-mini-button-mini" style="transform: rotate(-90deg);"">-</div>
                         </div></div>
-                    <div class=" air-mini-button" style="display: flex; align-items: center; justify-content: center;">
-                                        <img src="./img/down-info/air/back-defroster.svg" width="30px"
+                    <div class=" air-mini-button" id="backDefrosterDiv" style="display: flex; align-items: center; justify-content: center;">
+                                        <img id="backDefrosterImg" style="filter: brightness(1)"  src="./img/down-info/air/back-defroster.svg" width="30px"
                                             alt="Back Defroster">
                                 </div>
                             </div>

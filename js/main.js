@@ -328,3 +328,47 @@ function tirePressure() {
     console.log("Erro ao abrir a menu!");
   }
 }
+
+function turnOnOffAir(el) {
+  var text = el.innerHTML;
+
+  if(text === "OFF"){
+    el.innerHTML="ON";
+    el.style.color="black";
+    el.style.backgroundColor ="#F2F3F4";
+
+  }else if (text === "ON"){
+    el.innerHTML="OFF";
+    el.style.color="white";
+    el.style.backgroundColor ="#1B224C";
+
+  }else{
+    console.log("ERRO!")
+  }
+
+}
+
+function turnOnOffAuto(el) {
+  if(window.getComputedStyle(el,null).getPropertyValue('background-color') == "rgb(27, 34, 76)"){
+    document.getElementById("fan-air").style.opacity = "0.25";
+    el.style.color="black";
+    el.style.backgroundColor ="#F2F3F4";
+
+  }else if (window.getComputedStyle(el,null).getPropertyValue('background-color') == "rgb(242, 243, 244)"){
+    document.getElementById("fan-air").style.opacity = "1";
+    el.style.color="white";
+    el.style.backgroundColor ="#1B224C";
+
+  }else{
+    console.log("ERRO!")
+  }
+
+}
+
+function turnOnOffBackDefroster() {
+
+}
+
+function turnOnOffFrontDefroster() {
+  
+}
