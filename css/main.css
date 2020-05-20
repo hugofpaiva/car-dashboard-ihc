@@ -296,7 +296,11 @@ a:hover, a:visited, a:link, a:active {
   height: 100%;
 
   /* Grey background */
+  
   -webkit-appearance: slider-vertical;
+  background-color: #F2F3F4;
+
+
 
 
 }

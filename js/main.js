@@ -416,10 +416,24 @@ function plusTemp(side) {
   var temp = parseInt(document.getElementById(`${side}-temp-air`).innerHTML);
   temp+=1;
   document.getElementById(`${side}-temp-air`).innerHTML=temp;
+  if (side === "left"){
+    temp = document.getElementById("airtemp").innerHTML;
+    temp.replace("ºC","");
+    temp = parseInt(temp)+1;
+    temp = temp.toString();
+    document.getElementById("airtemp").innerHTML = temp + "ºC"
+  }
 }
 
 function minusTemp(side) {
   var temp = parseInt(document.getElementById(`${side}-temp-air`).innerHTML);
   temp-=1;
   document.getElementById(`${side}-temp-air`).innerHTML=temp;
+  if (side === "left"){
+    temp = document.getElementById("airtemp").innerHTML;
+    temp.replace("ºC","");
+    temp = parseInt(temp)-1;
+    temp = temp.toString();
+    document.getElementById("airtemp").innerHTML = temp + "ºC"
+  }
 }
