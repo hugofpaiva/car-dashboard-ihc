@@ -202,6 +202,13 @@ a:hover, a:visited, a:link, a:active {
   font-weight: 250;
 }
 
+.little-car {
+  font-size: 1rem;
+  margin: 0;
+  margin-top: 2px;
+  font-weight: 400;
+}
+
 .big-weather {
   margin: 0;
   font-size: 1.2rem;
@@ -302,6 +309,10 @@ html.is-animating .transition-fade {
   animation-name: fadeInRight;
 }
 
+.fadeinbottom {
+  animation: fadeInBottom 1s ease-out both;
+}
+
 .fadeinleft {
   animation-name: fadeInLeft;
 }
@@ -364,6 +375,12 @@ html.is-animating .transition-fade {
 .box-fadeout {
   animation: fadeIn 0.5s ease-out reverse;
 }
+
+.consumos p{
+margin: 0;
+margin-top: 0.7rem ;
+text-align: center;
+}
 /* 
 
 * Keyframes
@@ -392,6 +409,17 @@ html.is-animating .transition-fade {
   0% {
     opacity: 0;
     transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeInBottom {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 50%, 0);
   }
   100% {
     opacity: 1;

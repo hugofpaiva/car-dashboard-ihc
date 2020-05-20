@@ -312,3 +312,17 @@ function triggerMusic() {
     duration: 800,
   });
 }
+
+function tirePressure() {
+  var display = getComputedStyle(document.querySelector(".tire")).display;
+
+  if (display === "flex") {
+    document.getElementsByClassName("tire")[0].style.display = "none";
+    document.getElementsByClassName("info-car")[0].style.display = "flex";
+  } else if (display === "none") {
+    document.getElementsByClassName("info-car")[0].style.display = "none";
+    document.getElementsByClassName("tire")[0].style.display = "flex";
+  } else {
+    console.log("Erro ao abrir a menu!");
+  }
+}
