@@ -18,6 +18,7 @@ function init() {
         var timer = setInterval(checkWeather, 5000);
       }
       setInterval(getLocation, 3600000);
+      temp();
     }
 
     if (document.querySelector("#phone")) {
@@ -160,6 +161,12 @@ function updateDom(data) {
   }
 }
 
+function temp() {
+  document.getElementsByClassName("interior-temp")[1].innerHTML = '20<span style="font-size: x-small;">ºC</span>';
+  document.getElementsByClassName("interior-temp")[0].innerHTML = "20ºC";
+
+}
+
 function precipitation(top, down) {
   var preci = Math.floor(Math.random() * top) + down;
   document.getElementById("precipitacion").innerHTML = preci;
@@ -234,6 +241,7 @@ window.onbeforeunload = function (e) {
 // FUNÇÕES DE CLICKS
 
 function openAir() {
+  temp();
   var display = getComputedStyle(document.querySelector(".air-modal")).display;
 
   if (display === "flex") {
@@ -332,43 +340,86 @@ function tirePressure() {
 function turnOnOffAir(el) {
   var text = el.innerHTML;
 
-  if(text === "OFF"){
-    el.innerHTML="ON";
-    el.style.color="black";
-    el.style.backgroundColor ="#F2F3F4";
-
-  }else if (text === "ON"){
-    el.innerHTML="OFF";
-    el.style.color="white";
-    el.style.backgroundColor ="#1B224C";
-
-  }else{
-    console.log("ERRO!")
+  if (text === "OFF") {
+    el.innerHTML = "ON";
+    el.style.color = "black";
+    el.style.backgroundColor = "#F2F3F4";
+  } else if (text === "ON") {
+    el.innerHTML = "OFF";
+    el.style.color = "white";
+    el.style.backgroundColor = "#1B224C";
+  } else {
+    console.log("ERRO!");
   }
-
 }
 
 function turnOnOffAuto(el) {
-  if(window.getComputedStyle(el,null).getPropertyValue('background-color') == "rgb(27, 34, 76)"){
+  if (
+    window.getComputedStyle(el, null).getPropertyValue("background-color") ==
+    "rgb(27, 34, 76)"
+  ) {
+    document.getElementById("main-air-con").innerHTML = "ON";
+    document.getElementById("main-air-con").style.color = "black";
+    document.getElementById("main-air-con").style.backgroundColor = "#F2F3F4";
     document.getElementById("fan-air").style.opacity = "0.25";
-    el.style.color="black";
-    el.style.backgroundColor ="#F2F3F4";
-
-  }else if (window.getComputedStyle(el,null).getPropertyValue('background-color') == "rgb(242, 243, 244)"){
+    el.style.color = "black";
+    el.style.backgroundColor = "#F2F3F4";
+  } else if (
+    window.getComputedStyle(el, null).getPropertyValue("background-color") ==
+    "rgb(242, 243, 244)"
+  ) {
     document.getElementById("fan-air").style.opacity = "1";
-    el.style.color="white";
-    el.style.backgroundColor ="#1B224C";
-
-  }else{
-    console.log("ERRO!")
+    el.style.color = "white";
+    el.style.backgroundColor = "#1B224C";
+  } else {
+    console.log("ERRO!");
   }
-
 }
 
-function turnOnOffBackDefroster() {
-
+function turnOnOffBackDefroster(el) {
+  if (
+    window.getComputedStyle(el, null).getPropertyValue("background-color") ==
+    "rgb(27, 34, 76)"
+  ) {
+    document.getElementById("backDefrosterImg").style.filter = "brightness(0)";
+    el.style.backgroundColor = "#F2F3F4";
+  } else if (
+    window.getComputedStyle(el, null).getPropertyValue("background-color") ==
+    "rgb(242, 243, 244)"
+  ) {
+    document.getElementById("backDefrosterImg").style.filter = "brightness(1)";
+    el.style.backgroundColor = "#1B224C";
+  } else {
+    console.log("ERRO!");
+  }
 }
 
-function turnOnOffFrontDefroster() {
-  
+function turnOnOffFrontDefroster(el) {
+  if (
+    window.getComputedStyle(el, null).getPropertyValue("background-color") ==
+    "rgb(27, 34, 76)"
+  ) {
+    document.getElementById("frontDefrosterImg").style.filter = "brightness(0)";
+    el.style.backgroundColor = "#F2F3F4";
+  } else if (
+    window.getComputedStyle(el, null).getPropertyValue("background-color") ==
+    "rgb(242, 243, 244)"
+  ) {
+    document.getElementById("frontDefrosterImg").style.filter = "brightness(1)";
+    el.style.backgroundColor = "#1B224C";
+  } else {
+    console.log("ERRO!");
+  }
+}
+
+function plusTemp(side) {
+  var temp = parseInt(document.getElementById(`${side}-temp-air`).innerHTML);
+  temp+=1;
+  document.getElementById(`${side}-temp-air`).innerHTML=temp;
+}
+
+function minusTemp(side) {
+  var temp = parseInt(document.getElementById(`${side}-temp-air`).innerHTML);
+  temp-=1;
+  document.getElementById(`${side}-temp-air`).innerHTML=temp;
 }

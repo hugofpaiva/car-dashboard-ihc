@@ -48,12 +48,12 @@
                         </div>
                     </div>
                     <div style="text-align: center;">
-                        <p class="big-weather">22ºC</p>
+                        <p class="big-weather interior-temp">22ºC</p>
                         <p class="little-weather">inside</p>
                     </div>
                 </div>
                 <div style="width: 100%;height: 10%;display: flex; justify-content: space-around; align-items: center;">
-                    <div onclick="turnOnOffAir(this)" class="air-button">OFF</div>
+                    <div onclick="turnOnOffAir(this)" id="main-air-con" class="air-button">OFF</div>
                     <div
                         style="display: flex; flex-direction: column;width: 25%;height: 160%; align-items: center; justify-content: center;">
                         <div class="air-button" id="fan-air"
@@ -70,28 +70,31 @@
                 </div>
                 <div
                     style="width: 100%; height:50%; display: flex; align-items: center; justify-content: space-around;">
-                    <div class="air-mini-button" id="frontDefrosterDiv" style="display: flex; align-items: center; justify-content: center;">
-                        <img id="frontDefrosterImg" src="./img/down-info/air/front-defroster.svg" style="filter: brightness(1)" width="40px" alt="Front Defroster">
+                    <div class="air-mini-button" id="frontDefrosterDiv"
+                        style="display: flex; align-items: center; justify-content: center;" onclick="turnOnOffFrontDefroster(this)">
+                        <img id="frontDefrosterImg" src="./img/down-info/air/front-defroster.svg" width="40px"
+                            alt="Front Defroster">
                     </div>
                     <div class="air-button" style="transform: rotate(90deg); width: 30%; height: 20%;">
                         <div
                             style="display: flex; justify-content: space-between; align-items: center; width: 100%; height: 100%;">
-                            <div class="air-mini-button-mini" style="transform: rotate(-90deg);">+</div>
-                            <p class="big-weather" style="transform: rotate(-90deg);"">22</p>
-                            <div class=" air-mini-button-mini" style="transform: rotate(-90deg);"">-</div>
+                            <div class="air-mini-button-mini" onclick="plusTemp('left')" style="transform: rotate(-90deg);">+</div>
+                            <p id="left-temp-air" class="big-weather" style="transform: rotate(-90deg);"">22</p>
+                            <div class=" air-mini-button-mini" onclick="minusTemp('left')" style="transform: rotate(-90deg);"">-</div>
                         </div>
                     </div>
                     <img src=" ./img/tesla-up.png" height="80%" alt="Car">
                             <div class="air-button" style="transform: rotate(90deg); width: 30%; height: 20%;">
                                 <div
                                     style="display: flex; justify-content: space-between; align-items: center; width: 100%; height: 100%;">
-                                    <div class="air-mini-button-mini" style="transform: rotate(-90deg);">+</div>
-                                    <p class="big-weather" style="transform: rotate(-90deg);"">22</p>
-                            <div class=" air-mini-button-mini" style="transform: rotate(-90deg);"">-</div>
+                                    <div onclick="plusTemp('right')" class="air-mini-button-mini" style="transform: rotate(-90deg);">+</div>
+                                    <p id="right-temp-air" class="big-weather" style="transform: rotate(-90deg);"">22</p>
+                            <div class="air-mini-button-mini" onclick="minusTemp('right')" style="transform: rotate(-90deg);"">-</div>
                         </div></div>
-                    <div class=" air-mini-button" id="backDefrosterDiv" style="display: flex; align-items: center; justify-content: center;">
-                                        <img id="backDefrosterImg" style="filter: brightness(1)"  src="./img/down-info/air/back-defroster.svg" width="30px"
-                                            alt="Back Defroster">
+                    <div class=" air-mini-button" id="backDefrosterDiv" onclick="turnOnOffBackDefroster(this)"
+                                        style="display: flex; align-items: center; justify-content: center;">
+                                        <img id="backDefrosterImg" src="./img/down-info/air/back-defroster.svg"
+                                            width="30px" alt="Back Defroster">
                                 </div>
                             </div>
                         </div>
@@ -151,7 +154,7 @@
                                     <div class="weather-info">
                                         <img src="./img/weather/term.svg" width="60px" alt="Temperature">
                                         <div style="display: flex; flex-direction: column;align-items: center;">
-                                            <p class="big-weather">20<span style="font-size: x-small;">ºC</span></p>
+                                            <p class="big-weather interior-temp">20<span style="font-size: x-small;">ºC</span></p>
                                             <p class="little-weather">inside</p>
                                         </div>
                                         <div style="display: flex; flex-direction: column;align-items: center;">
