@@ -9,16 +9,26 @@ var contacts = [
     ["./img/liliana.jpeg", "Liliana"],
   ];
 
-function phone() {
   var recentcalls = [
     ["./img/pedro.jpeg", "Pedro", "today"],
     ["./img/fabiana.jpeg", "Fabiana", "yesterday"],
     ["./img/alberto.jpeg", "Alberto", "yesterday"],
     ["./img/alfredo.jpeg", "Alfredo", "yesterday"],
   ];
-  
+
+function phone() {
+  showRecents()
+}
+
+function showRecents(){
+  var box = document.getElementById("recentbox");
+  box.innerHTML = "";
+  box.style.display = "flex"
+
+  var numpad = document.getElementById("numPad");
+  numpad.style.display = "none";
+
   for (i = 0; i < recentcalls.length; i++) {
-    var box = document.getElementById("recentbox");
 
     var row = document.createElement("div");
     row.style =
@@ -52,8 +62,45 @@ function phone() {
     div2.appendChild(nome);
     div2.appendChild(date);
   }
+
+  var ic1 = document.getElementById("ic1");
+  var ic2 = document.getElementById("ic2");
+  var ic3 = document.getElementById("ic3");
+  ic1.src = "./img/wall-clockb.png"
+  ic2.src = "./img/buttons.png"
+  ic3.src = "./img/maps-and-flags.png"
 }
 
+function showNum(){
+  var recent = document.getElementById("recentbox");
+  recent.style.display = "none";
+
+  var numpad = document.getElementById("numPad");
+  numpad.style.display = "flex";
+
+  var bar = document.getElementById("telNumber");
+  bar.innerHTML = ""
+
+  var ic1 = document.getElementById("ic1");
+  var ic2 = document.getElementById("ic2");
+  var ic3 = document.getElementById("ic3");
+  ic1.src = "./img/wall-clock.png"
+  ic2.src = "./img/buttonsb.png"
+  ic3.src = "./img/maps-and-flags.png"
+}
+
+function showSos(){
+  showNum()
+  var bar = document.getElementById("telNumber");
+  bar.innerHTML = "122"
+
+  var ic1 = document.getElementById("ic1");
+  var ic2 = document.getElementById("ic2");
+  var ic3 = document.getElementById("ic3");
+  ic1.src = "./img/wall-clock.png"
+  ic2.src = "./img/buttons.png"
+  ic3.src = "./img/maps-and-flagsb.png"
+}
 
 function showContacts(element) {
   var pad = document.getElementById("letterpad");
@@ -169,3 +216,19 @@ function showPad() {
 
   cbox.innerHTML = "";
 }
+
+
+$(document).ready(function () {
+
+  $('.num').click(function () {
+      var num = $(this);
+      var text = $.trim(num.find('.txt').clone().children().remove().end().text());
+      var telNumber = $('#telNumber');
+      if(text=="<"){
+        $(telNumber).html(telNumber.html().slice(0, -1))
+      }else{
+        $(telNumber).html(telNumber.html() + text);
+      }
+  });
+
+});
