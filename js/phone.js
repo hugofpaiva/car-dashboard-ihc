@@ -62,6 +62,17 @@ function showContacts(element) {
   var cbox = document.getElementById("contactbox");
   cbox.style.display = "flex";
 
+  var cbox1 = document.createElement("div");
+  cbox1.classList.add("cbox")
+  cbox1.style.width = "70%"
+  cbox1.style.height = "100%"
+  var cbox2 = document.createElement("div");
+  cbox2.style.width = "30%"
+  cbox2.style.height = "100%"
+
+  cbox.appendChild(cbox1)
+  cbox.appendChild(cbox2)
+
   var letter = element.innerHTML;
 
   var letter_contacts = [];
@@ -74,34 +85,32 @@ function showContacts(element) {
 
   if (letter_contacts.length == 0) {
     var row = document.createElement("div");
-    row.style =
-      "width: 70%; height:15%; display: flex; justify-content: center; flex-direction: row; padding-top: 20px";
+    row.style = "width: 100%; height:15%; display: flex; justify-content: center; flex-direction: row; padding-top: 20px";
 
     var txt = document.createElement("div");
     txt.height = "50";
     txt.innerHTML = "No Contacts to show...";
 
-    cbox.appendChild(row);
+    cbox1.appendChild(row);
     row.appendChild(txt);
 
     var div4 = document.createElement("div");
-    div4.style =
-      "width: 25%; height:15%; display: flex; justify-content: center; align-items: center; padding-top: 20px";
+    div4.style = "width: 100%; height:15%; display: flex; justify-content: flex-end; align-items: center;";
     div4.onclick = showPad;
 
     var symbol2 = document.createElement("img");
     symbol2.src = "./img/arrows.png";
     symbol2.width = "50";
     symbol2.height = "50";
+    symbol2.style.paddingRight = "20px"
 
-    cbox.appendChild(div4);
+    cbox2.appendChild(div4);
     div4.appendChild(symbol2);
   }
 
   for (i = 0; i < letter_contacts.length; i++) {
     var row = document.createElement("div");
-    row.style =
-      "width: 70%; height:15%; display: flex; justify-content: space-evenly; flex-direction: row; padding-top: 20px";
+    row.style = "width: 100%; height:15%; display: flex; justify-content: space-evenly; flex-direction: row; padding-top: 20px";
 
     var div1 = document.createElement("div");
     div1.style = "width: 30%;";
@@ -126,7 +135,7 @@ function showContacts(element) {
     symbol.width = "40";
     symbol.height = "40";
 
-    cbox.appendChild(row);
+    cbox1.appendChild(row);
     row.appendChild(div1);
     row.appendChild(div2);
     row.appendChild(div3);
@@ -136,16 +145,16 @@ function showContacts(element) {
 
     if (i == 0) {
       var div4 = document.createElement("div");
-      div4.style =
-        "width: 25%; height:15%; display: flex; justify-content: center; align-items: center; padding-top: 20px";
+      div4.style = "width: 100%; height:15%; display: flex; justify-content: flex-end; align-items: center;";
       div4.onclick = showPad;
 
       var symbol2 = document.createElement("img");
       symbol2.src = "./img/arrows.png";
       symbol2.width = "50";
       symbol2.height = "50";
+      symbol2.style.paddingRight = "20px"
 
-      cbox.appendChild(div4);
+      cbox2.appendChild(div4);
       div4.appendChild(symbol2);
     }
   }

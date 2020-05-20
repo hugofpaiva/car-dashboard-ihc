@@ -39,3 +39,9 @@
   flex-wrap: wrap;
 }
 
+.cbox{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
