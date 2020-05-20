@@ -162,9 +162,13 @@ function updateDom(data) {
 }
 
 function temp() {
-  document.getElementsByClassName("interior-temp")[1].innerHTML = '20<span style="font-size: x-small;">ºC</span>';
   document.getElementsByClassName("interior-temp")[0].innerHTML = "20ºC";
-
+  try {
+    document.getElementsByClassName("interior-temp")[1].innerHTML =
+      '20<span style="font-size: x-small;">ºC</span>';
+  }catch{
+    console.log("Cartão do Weather não presente no ecrã!")
+  }
 }
 
 function precipitation(top, down) {
@@ -414,26 +418,26 @@ function turnOnOffFrontDefroster(el) {
 
 function plusTemp(side) {
   var temp = parseInt(document.getElementById(`${side}-temp-air`).innerHTML);
-  temp+=1;
-  document.getElementById(`${side}-temp-air`).innerHTML=temp;
-  if (side === "left"){
+  temp += 1;
+  document.getElementById(`${side}-temp-air`).innerHTML = temp;
+  if (side === "left") {
     temp = document.getElementById("airtemp").innerHTML;
-    temp.replace("ºC","");
-    temp = parseInt(temp)+1;
+    temp.replace("ºC", "");
+    temp = parseInt(temp) + 1;
     temp = temp.toString();
-    document.getElementById("airtemp").innerHTML = temp + "ºC"
+    document.getElementById("airtemp").innerHTML = temp + "ºC";
   }
 }
 
 function minusTemp(side) {
   var temp = parseInt(document.getElementById(`${side}-temp-air`).innerHTML);
-  temp-=1;
-  document.getElementById(`${side}-temp-air`).innerHTML=temp;
-  if (side === "left"){
+  temp -= 1;
+  document.getElementById(`${side}-temp-air`).innerHTML = temp;
+  if (side === "left") {
     temp = document.getElementById("airtemp").innerHTML;
-    temp.replace("ºC","");
-    temp = parseInt(temp)-1;
+    temp.replace("ºC", "");
+    temp = parseInt(temp) - 1;
     temp = temp.toString();
-    document.getElementById("airtemp").innerHTML = temp + "ºC"
+    document.getElementById("airtemp").innerHTML = temp + "ºC";
   }
 }
