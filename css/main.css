@@ -256,6 +256,28 @@ a:hover, a:visited, a:link, a:active {
   background-color: rgba(255, 255, 255, 0.95);
 }
 
+.air-mini-button-mini {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: xx-large;
+  width: 35%;
+  height: 90%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.air-mini-button-mini-mini {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: xx-large;
+  width: 32.5%;
+  height: 95%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
 .circle {
   width: 20%;
   height: 20%;

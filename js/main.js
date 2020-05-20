@@ -252,7 +252,7 @@ function openSettings() {
   if (display === "flex") {
     document.getElementsByClassName("settings-modal")[0].style.display = "none";
   } else if (display === "none") {
-    airResize();
+    settingsResize();
     document.getElementsByClassName("settings-modal")[0].style.display = "flex";
   } else {
     console.log("Erro ao abrir a modal!");
