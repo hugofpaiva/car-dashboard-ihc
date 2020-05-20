@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="./css/apps.css">
     <link rel="stylesheet" type="text/css" href="./css/main.css">
     <link rel="stylesheet" type="text/css" href="./css/maps.css">
     <link rel="shortcut icon" type="image/svg" href="./img/icon.svg" />
@@ -71,25 +72,30 @@
                 <div
                     style="width: 100%; height:50%; display: flex; align-items: center; justify-content: space-around;">
                     <div class="air-mini-button" id="frontDefrosterDiv"
-                        style="display: flex; align-items: center; justify-content: center;" onclick="turnOnOffFrontDefroster(this)">
+                        style="display: flex; align-items: center; justify-content: center;"
+                        onclick="turnOnOffFrontDefroster(this)">
                         <img id="frontDefrosterImg" src="./img/down-info/air/front-defroster.svg" width="40px"
                             alt="Front Defroster">
                     </div>
                     <div class="air-button" style="transform: rotate(90deg); width: 30%; height: 20%;">
                         <div
                             style="display: flex; justify-content: space-between; align-items: center; width: 100%; height: 100%;">
-                            <div class="air-mini-button-mini" onclick="plusTemp('left')" style="transform: rotate(-90deg);">+</div>
+                            <div class="air-mini-button-mini" onclick="plusTemp('left')"
+                                style="transform: rotate(-90deg);">+</div>
                             <p id="left-temp-air" class="big-weather" style="transform: rotate(-90deg);"">22</p>
-                            <div class=" air-mini-button-mini" onclick="minusTemp('left')" style="transform: rotate(-90deg);"">-</div>
+                            <div class=" air-mini-button-mini" onclick="minusTemp('left')"
+                                style="transform: rotate(-90deg);"">-</div>
                         </div>
                     </div>
                     <img src=" ./img/tesla-up.png" height="80%" alt="Car">
                             <div class="air-button" style="transform: rotate(90deg); width: 30%; height: 20%;">
                                 <div
                                     style="display: flex; justify-content: space-between; align-items: center; width: 100%; height: 100%;">
-                                    <div onclick="plusTemp('right')" class="air-mini-button-mini" style="transform: rotate(-90deg);">+</div>
+                                    <div onclick="plusTemp('right')" class="air-mini-button-mini"
+                                        style="transform: rotate(-90deg);">+</div>
                                     <p id="right-temp-air" class="big-weather" style="transform: rotate(-90deg);"">22</p>
-                            <div class="air-mini-button-mini" onclick="minusTemp('right')" style="transform: rotate(-90deg);"">-</div>
+                            <div class=" air-mini-button-mini" onclick="minusTemp('right')"
+                                        style="transform: rotate(-90deg);"">-</div>
                         </div></div>
                     <div class=" air-mini-button" id="backDefrosterDiv" onclick="turnOnOffBackDefroster(this)"
                                         style="display: flex; align-items: center; justify-content: center;">
@@ -154,7 +160,8 @@
                                     <div class="weather-info">
                                         <img src="./img/weather/term.svg" width="60px" alt="Temperature">
                                         <div style="display: flex; flex-direction: column;align-items: center;">
-                                            <p class="big-weather interior-temp">20<span style="font-size: x-small;">ºC</span></p>
+                                            <p class="big-weather interior-temp">20<span
+                                                    style="font-size: x-small;">ºC</span></p>
                                             <p class="little-weather">inside</p>
                                         </div>
                                         <div style="display: flex; flex-direction: column;align-items: center;">
@@ -229,10 +236,12 @@
                                 </div>
                             </a>
 
-                            <div class="menu">
-                                <img src="./img/down-info/apps.svg" width="40px" alt="Apps">
-                                <p class="app-name">Apps</p>
-                            </div>
+                            <a href="./apps.html" class="transition-fade">
+                                <div class="menu">
+                                    <img src="./img/down-info/apps.svg" width="40px" alt="Apps">
+                                    <p class="app-name">Apps</p>
+                                </div>
+                            </a>
                         </div>
                         <div class="v-line"></div>
                         <div class="heated-seats">
