@@ -1,3 +1,4 @@
+function phone() {
 var recentcalls = [["./img/pedro.jpeg", "Pedro", "today"], ["./img/fabiana.jpeg", "Fabiana", "yesterday"], ["./img/alberto.jpeg", "Alberto", "yesterday"], ["./img/alfredo.jpeg", "Alfredo", "yesterday"]];
 var contacts = [["./img/pedro.jpeg", "Pedro"], ["./img/fabiana.jpeg", "Fabiana"], ["./img/alberto.jpeg", "Alberto"], ["./img/alfredo.jpeg", "Alfredo"], ["./img/ana.jpeg", "Ana"], ["./img/adriana.jpeg", "Adriana"], ["./img/jose.jpeg", "José"], ["./img/liliana.jpeg", "Liliana"]]
 
@@ -34,7 +35,10 @@ for(i=0; i<recentcalls.length;i++){
     div1.appendChild(image)
     div2.appendChild(nome)
     div2.appendChild(date)
+      }
 }
+
+phone();
 
 
 function showContacts(element) {

@@ -11,9 +11,10 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+
 </head>
 
-<body>
+<body onresize="resize()">
 
     <div class="container">
         <div class="top-info">
@@ -26,124 +27,242 @@
 
             <div class="info" style="justify-content: flex-end;">
                 <p id="music">RFM</p>
-                <div style="display: flex; align-items: center;">
-                    <img src="./img/top-info/wrench.png" width="50px" alt="Wrench">
+                <div style="display: flex; align-items: center;" onclick="openSettings()">
+                    <img src="./img/top-info/wrench.png" width="60px" alt="Wrench">
                 </div>
             </div>
 
 
         </div>
-        <div class="content">
-            <div class="box left">
-                <div id="map"></div>
-            </div>
-            <div class="right">
-                <div class="box up" style="display: flex;flex-direction: column-reverse;">
-                    <div class="music-controls" id="m-controls"></div>
-                </div>
-                <div class="box down" style="display: flex;flex-direction: column;">
-                    <h4 style="margin:0;">Weather</h4>
-                    <div class="weather">
-                        <div class="weather-info">
-                            <img id="image-weather" src="./img/weather/w/sun.svg" width="60px" alt="Weather">
-                            <div style="display: flex; flex-direction: column;align-items: center;">
-                                <p class="big-weather"><span id="weather">Sun</span></p>
-                                <p class="little-weather">weather</p>
-                            </div>
-                            <div style="display: flex; flex-direction: column;align-items: center;">
-                                <p class="big-weather"><span id="wind">5</span><span style="font-size: x-small;">km/h</span></p>
-                                <p class="little-weather">wind</p>
-                            </div>
+        <div class="settings-modal box-fadein"></div>
+        <div class="air-modal box-fadein">
+            <div class="air-flex">
+                <div style="width: 100%; height: 25%;">
+                    <div style="display: flex; justify-content: space-between; width: 100%; align-items: flex-start;">
+                        <div style="width:57%; text-align: right;"">
+                        <h1>A/C</h1>
+                    </div>
+                    <div style=" width: 50px; height: 50px; display: flex; align-items: center; justify-content:
+                            center;" onclick=" openAir()">
+                            <img src=" ./img/down-info/air/close.svg" width="40px" alt="Wrench">
                         </div>
-                        <div class="weather-info">
-                            <img src="./img/weather/term.svg" width="60px" alt="Temperature">
-                            <div style="display: flex; flex-direction: column;align-items: center;">
-                                <p class="big-weather">20<span style="font-size: x-small;">ºC</span></p>
-                                <p class="little-weather">inside</p>
-                            </div>
-                            <div style="display: flex; flex-direction: column;align-items: center;">
-                                <p class="big-weather"><span id="temperature2">22</span><span style="font-size: x-small;">ºC</span></p>
-                                <p class="little-weather">outside</p>
-                            </div>
-                        </div>
-                        <div class="weather-info">
-                            <img src="./img/weather/watering.svg" width="60px" alt="Temperature">
-                            <div style="display: flex; flex-direction: column;align-items: center;">
-                                <p class="big-weather"><span id="precipitacion">15</span><span style="font-size: x-small;">%</span></p>
-                                <p class="little-weather">precipitacion</p>
-                            </div>
-                            <div style="display: flex; flex-direction: column;align-items: center;">
-                                <p class="big-weather"><span id="humidity">60</span><span style="font-size: x-small;">%</span></p>
-                                <p class="little-weather">humidity</p>
-                            </div>
-                        </div>
-
+                    </div>
+                    <div style="text-align: center;">
+                        <p class="big-weather">22ºC</p>
+                        <p class="little-weather">inside</p>
                     </div>
                 </div>
+                <div style="width: 100%;height: 10%;display: flex; justify-content: space-around; align-items: center;">
+                    <div class="air-button">OFF</div>
+                    <div
+                        style="display: flex; flex-direction: column;width: 25%;height: 160%; align-items: center; justify-content: center;">
+                        <div class="air-button"
+                            style="width: 100%;height: 50%; display: flex; justify-content: space-between; align-items: center;">
+                            <div class="air-mini-button-mini-mini">
+                                <p>-</p>
+                            </div>
+                            <img src=" ./img/down-info/air/fan.svg" width="25px" style="filter: brightness(0)"
+                                alt="Fan">
+                            <div class="air-mini-button-mini-mini">+</div>
+                        </div>
+                    </div>
+                    <div class="air-button">AUTO</div>
+                </div>
+                <div
+                    style="width: 100%; height:50%; display: flex; align-items: center; justify-content: space-around;">
+                    <div class="air-mini-button" style="display: flex; align-items: center; justify-content: center;">
+                        <img src="./img/down-info/air/front-defroster.svg" width="40px" alt="Front Defroster">
+                    </div>
+                    <div class="air-button" style="transform: rotate(90deg); width: 30%; height: 20%;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; width: 100%; height: 100%;">
+                            <div class="air-mini-button-mini" style="transform: rotate(-90deg);">+</div>
+                            <p class="big-weather" style="transform: rotate(-90deg);"">22</p>
+                            <div class=" air-mini-button-mini" style="transform: rotate(-90deg);"">-</div>
+                        </div>
+                    </div>
+                    <img src=" ./img/tesla-up.png" height="80%" alt="Car">
+                            <div class="air-button" style="transform: rotate(90deg); width: 30%; height: 20%;">
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: center; width: 100%; height: 100%;">
+                                    <div class="air-mini-button-mini" style="transform: rotate(-90deg);">+</div>
+                                    <p class="big-weather" style="transform: rotate(-90deg);"">22</p>
+                            <div class=" air-mini-button-mini" style="transform: rotate(-90deg);"">-</div>
+                        </div></div>
+                    <div class=" air-mini-button" style="display: flex; align-items: center; justify-content: center;">
+                                        <img src="./img/down-info/air/back-defroster.svg" width="30px"
+                                            alt="Back Defroster">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-            </div>
-        </div>
-        <div class="down-info">
-            <div class="air-conditioner">
-                <div class="air-box">
-                    <p id="airtemp">22ºC</p>
-                    <img src="./img/down-info/air/air.svg" width="40px" alt="Airconditioner">
-                </div>
-            </div>
-            <div class="v-line"></div>
-            <div class="navbar">
-                <div class="menu">
-                    <img src="./img/down-info/home.svg" width="40px" alt="Home">
-                    <p class="app-name">Home</p>
-                </div>
-                <div class="menu">
-                    <img src="./img/down-info/phone.svg" width="40px" alt="Phone">
-                    <p class="app-name">Phone</p>
-                </div>
-                <div class="menu">
-                    <img src="./img/down-info/radio.svg" width="40px" alt="Radio">
-                    <p class="app-name">Audio</p>
-                </div>
-
-                <div class="menu">
-                    <img src="./img/down-info/tesla.png" width="105px" alt="Car">
-                    <p class="app-name">Car Info</p>
-                </div>
-                <div class="menu">
-                    <img src="./img/down-info/navigation.svg" width="40px" alt="Navigation">
-                    <p class="app-name">Navi</p>
-                </div>
-
-                <div class="menu">
-                    <img src="./img/down-info/apps.svg" width="40px" alt="Apps">
-                    <p class="app-name">Apps</p>
-                </div>
-            </div>
-            <div class="v-line"></div>
-            <div class="heated-seats">
-                <div style="display: flex; justify-content: space-around; width: 100%;">
-                    <div style="display: flex; flex-direction: column; align-items: center;">
-                        <p class="app-name" style="margin-bottom: 5px; margin-top: 0px;"">L</p>
-                        <img src=" ./img/down-info/heated-seats/seat.svg" width="40px" alt="Driver Seat">
+                    <div class="settings-modal">
 
                     </div>
-                    <div style="display: flex; flex-direction: column;align-items: center;">
-                        <p class="app-name" style="margin-bottom: 5px; margin-top: 0px;">R</p>
-                        <img src="./img/down-info/heated-seats/seat.svg" style="transform: scaleX(-1);" width="40px"
-                            alt="Passenger Seat">
-                    </div>
-                </div>
-                <p class="app-name" style="margin-top:5px">Heated Seats</p>
-            </div>
-        </div>
-    </div>
-    </div>
 
-    <script type="text/javascript" src="./js/maps.js"></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ1LJWoi_zWZXbi4Oqzm3JwhHAqT-iBCU&libraries=places&callback=initAutocomplete"
-        async defer></script>
-    <script type="text/javascript" src="./js/main.js"></script>
+                    <div id="swup" class="content transition-fade">
+                        <div class="box left">
+                            <div id="map"></div>
+                        </div>
+                        <div class="right">
+                            <div class="box up">
+                                <div class="music" style="display: flex;">
+                                    <div class="music-controls" id="m-controls">
+                                        <div
+                                            style="display: flex; flex-direction: column;align-items: center; justify-content: space-between;width: 50%; height: 90%;">
+                                            <div style="text-align: center;">
+                                                <p id="artist">RFM</p>
+                                                <p id="music">Popcorn Time</p>
+                                            </div>
+                                            <div
+                                                style="width: 80%; display: flex; flex-direction: column; align-items: center;">
+                                                <div id="mslider" style="margin-bottom: 20px;"></div>
+                                                <div style="display: flex; justify-content: space-around; width: 100%;">
+                                                    <img src="./img/music/controls/left.svg" width="55px"
+                                                        alt="Previous">
+                                                    <img src="./img/music/controls/pause.svg" width="55px" alt="Pause"
+                                                        onclick="triggerMusic()">
+                                                    <img src="./img/music/controls/right.svg" width="55px" alt="Next">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="box down" style="display: flex;flex-direction: column;">
+                                <h4 style="margin:0;">Weather</h4>
+                                <div id="index" class="weather">
+                                    <div class="weather-info">
+                                        <img id="image-weather" src="./img/weather/w/sun.svg" width="60px"
+                                            alt="Weather">
+                                        <div style="display: flex; flex-direction: column;align-items: center;">
+                                            <p class="big-weather"><span id="weather">Sun</span></p>
+                                            <p class="little-weather">weather</p>
+                                        </div>
+                                        <div style="display: flex; flex-direction: column;align-items: center;">
+                                            <p class="big-weather"><span id="wind">5</span><span
+                                                    style="font-size: x-small;">km/h</span></p>
+                                            <p class="little-weather">wind</p>
+                                        </div>
+                                    </div>
+                                    <div class="weather-info">
+                                        <img src="./img/weather/term.svg" width="60px" alt="Temperature">
+                                        <div style="display: flex; flex-direction: column;align-items: center;">
+                                            <p class="big-weather">20<span style="font-size: x-small;">ºC</span></p>
+                                            <p class="little-weather">inside</p>
+                                        </div>
+                                        <div style="display: flex; flex-direction: column;align-items: center;">
+                                            <p class="big-weather"><span id="temperature2">22</span><span
+                                                    style="font-size: x-small;">ºC</span></p>
+                                            <p class="little-weather">outside</p>
+                                        </div>
+                                    </div>
+                                    <div class="weather-info">
+                                        <img src="./img/weather/watering.svg" width="60px" alt="Temperature">
+                                        <div style="display: flex; flex-direction: column;align-items: center;">
+                                            <p class="big-weather"><span id="precipitacion">15</span><span
+                                                    style="font-size: x-small;">%</span></p>
+                                            <p class="little-weather">precipitacion</p>
+                                        </div>
+                                        <div style="display: flex; flex-direction: column;align-items: center;">
+                                            <p class="big-weather"><span id="humidity">60</span><span
+                                                    style="font-size: x-small;">%</span></p>
+                                            <p class="little-weather">humidity</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="down-info">
+                        <div class="air-conditioner" onclick="openAir()">
+                            <div class="air-box">
+                                <p id="airtemp">22ºC</p>
+                                <img src="./img/down-info/air/air.svg" width="40px" alt="Airconditioner">
+                            </div>
+                        </div>
+                        <div class="v-line"></div>
+                        <div class="navbar">
+                            <a href="./index.html" class="transition-fade">
+                                <div class="menu">
+                                    <img src="./img/down-info/home.svg" width="40px" alt="Home">
+                                    <p class="app-name">Home</p>
+                                </div>
+                            </a>
+                            <a href="./phone.html" class="transition-fade">
+                                <div class="menu">
+                                    <img src="./img/down-info/phone.svg" width="40px" alt="Phone">
+                                    <p class="app-name">Phone</p>
+                                </div>
+                            </a>
+                            <a href="./music.html" class="transition-fade">
+                                <div class="menu">
+                                    <img src="./img/down-info/radio.svg" width="40px" alt="Radio">
+                                    <p class="app-name">Audio</p>
+                                </div>
+                            </a>
+
+                            <a href="./car.html" class="transition-fade">
+                                <div class="menu">
+                                    <img src="./img/down-info/tesla.png" width="105px" alt="Car">
+                                    <p class="app-name">Car Info</p>
+                                </div>
+                            </a>
+
+                            <div class="menu">
+                                <img src="./img/down-info/door.svg" width="40px" alt="Car">
+                                <p class="app-name">Doors</p>
+                            </div>
+
+                            <a href="./maps.html" class="transition-fade">
+                                <div class="menu">
+                                    <img src="./img/down-info/navigation.svg" width="40px" alt="Navigation">
+                                    <p class="app-name">Navi</p>
+                                </div>
+                            </a>
+
+                            <div class="menu">
+                                <img src="./img/down-info/apps.svg" width="40px" alt="Apps">
+                                <p class="app-name">Apps</p>
+                            </div>
+                        </div>
+                        <div class="v-line"></div>
+                        <div class="heated-seats">
+                            <div style="display: flex; justify-content: space-between; width: 65%;">
+                                <div style="display: flex; flex-direction: column; align-items: center;">
+                                    <img src=" ./img/down-info/heated-seats/seat-left.png" width="40px"
+                                        alt="Driver Seat">
+
+                                </div>
+                                <div style="display: flex; flex-direction: column;align-items: center;">
+                                    <img src="./img/down-info/heated-seats/seat-right.png" width="40px"
+                                        alt="Passenger Seat">
+                                </div>
+                            </div>
+                            <p class="app-name" style="margin-top:3.5%">Heated Seats</p>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+            <script src="node_modules/progressbar.js/dist/progressbar.js"></script>
+            <script src="node_modules/progressbar.js/dist/progressbar.min.js"></script>
+            <script src="./node_modules/swup/dist/swup.min.js"></script>
+            <script src="./node_modules/@swup/body-class-plugin/dist/SwupBodyClassPlugin.min.js"></script>
+
+            <script
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ1LJWoi_zWZXbi4Oqzm3JwhHAqT-iBCU&libraries=places&callback=initAutocomplete"
+                async defer></script>
+            <script type="text/javascript" src="./js/maps.js"></script>
+            <script type="text/javascript" src="./js/main.js"></script>
 </body>
 
 </html>
