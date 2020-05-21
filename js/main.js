@@ -217,7 +217,52 @@ function updateTime() {
   document.getElementById("hours").innerHTML = hour + ":" + minutes;
   document.getElementById("date").innerHTML =
     dayWeek + ", " + day + " " + month + " " + year;
-}
+};
+
+function upTime(el) {
+  if(el.value[0] == 0){
+    document.getElementById("hours").innerHTML = el.value.substring(1,5)
+  } else {
+    document.getElementById("hours").innerHTML = el.value
+  }
+};
+
+function upDate(el) {
+  var days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  var months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  var date = el.valueAsDate
+  var hour = date.getHours();
+  var minutes = date.getMinutes();
+  var day = date.getDay();
+  var dayWeek = days[day];
+  day = date.getUTCDate();
+  var month = months[date.getMonth()];
+  var year = date.getFullYear();
+  document.getElementById("date").innerHTML =
+    dayWeek + ", " + day + " " + month + " " + year;
+};
+
 
 // FUNÇÕES DE MANUTENÇÃO
 

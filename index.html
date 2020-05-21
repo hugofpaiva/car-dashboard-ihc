@@ -36,14 +36,51 @@
 
         </div>
         <div class="settings-modal box-fadein">
-            <div style="height: 90%; width: 37.5%; display: flex; flex-direction: column; align-items: center;">
-                <div class="settings-box">Clock</div>
-                <div class="settings-box">Sound</div>
-                <div class="settings-box">Bluetooth</div>
-                <div class="settings-box">System</div>
+            <div style="height: 90%; width: 37.5%;">
+                <div
+                    style="height: 60%; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
+                    <div class="settings-box">Clock</div>
+                    <div class="settings-box">Sound</div>
+                    <div class="settings-box">Bluetooth</div>
+                    <div class="settings-box">System</div>
+                </div>
             </div>
             <div class="v-line" style="height: 92.5%;"></div>
-            <div style="height: 100%; width: 62.5%;"></div>
+            <div id="clock" style="height: 90%; width: 62.5%; display: flex;flex-direction: column; align-items: center;">
+                <div
+                    style="width: 90%; height: 10%; display: flex; justify-content: space-between; align-items: center; margin-top: 25px;">
+                    <p>Adjust Time</p>
+                    <input type="time" id="appt" name="appt" min="00:00" max="23:59" style="height:50%;"
+                        onchange="upTime(this)" required>
+
+                </div>
+
+                <div
+                    style="width: 90%; height: 10%; display: flex; justify-content: space-between; align-items: center; margin-top: 25px;">
+                    <p>Adjust Data</p>
+                    <input id="date" type="date" style="height:50%;"
+                        onchange="upDate(this)" required>
+
+                </div>
+            </div>
+
+            <div id="sound" style="height: 90%; width: 62.5%; display: flex;flex-direction: column; align-items: center; display: none;">
+                <div
+                    style="width: 90%; height: 10%; display: flex; justify-content: space-between; align-items: center; margin-top: 25px;">
+                    <p>Adjust Time</p>
+                    <input type="time" id="appt" name="appt" min="00:00" max="23:59" style="height:50%;"
+                        onchange="upTime(this)" required>
+
+                </div>
+
+                <div
+                    style="width: 90%; height: 10%; display: flex; justify-content: space-between; align-items: center; margin-top: 25px;">
+                    <p>Adjust Data</p>
+                    <input id="date" type="date" style="height:50%;"
+                        onchange="upDate(this)" required>
+
+                </div>
+            </div>
         </div>
         <div class="air-modal box-fadein">
             <div class="air-flex">
