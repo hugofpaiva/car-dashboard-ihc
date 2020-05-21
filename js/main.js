@@ -608,9 +608,20 @@ function door(el) {
 
   if (src[src.length - 1] === "lock.svg") {
     el.src = "./img/doors/unlock.png";
-  } else if (src[src.length - 1] === "unlock.png"){
+  } else if (src[src.length - 1] === "unlock.png") {
     el.src = "./img/doors/lock.svg";
-  }else {
+  } else {
     console.log("ERROR!");
   }
+}
+
+function changePage(el) {
+  var list = document.getElementsByClassName("menu");
+  for (i = 0; i < list.length; i++) {
+    changee(list[i]);
+  }
+  el.style.textDecoration = "underline";
+}
+function changee(el) {
+  el.style.textDecoration = "none";
 }
