@@ -396,6 +396,9 @@ function turnOnOffAir(el) {
     el.innerHTML = "OFF";
     el.style.color = "white";
     el.style.backgroundColor = "#1B224C";
+    document.getElementById("fan-air").style.opacity = "1";
+    document.getElementById("autoair").style.color = "white";
+    document.getElementById("autoair").style.backgroundColor = "#1B224C";
   } else {
     console.log("ERRO!");
   }
