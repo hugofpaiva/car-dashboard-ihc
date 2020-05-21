@@ -97,16 +97,17 @@
 
             <div id="bluetooth"
                 style="height: 90%; width: 62.5%; display: flex;flex-direction: column; align-items: center; display: none;">
-                <div
-                    id="iphone-not-connected" style="width: 90%; height: 10%; display: flex; justify-content: space-between; align-items: center; margin-top: 25px; display: none">
+                <div id="iphone-not-connected"
+                    style="width: 90%; height: 10%; display: flex; justify-content: space-between; align-items: center; margin-top: 25px; display: none">
                     <p>iPhone of Sean</p>
                     <div class="bluetooth-box" onclick="connect(this)" id="bluetooth-connect">Connect</div>
 
                 </div>
-                <div
-                    id="iphone-connected" style="width: 90%; height: 10%; display: flex; justify-content: space-between; align-items: center; margin-top: 25px; display: none">
+                <div id="iphone-connected"
+                    style="width: 90%; height: 10%; display: flex; justify-content: space-between; align-items: center; margin-top: 25px; display: none">
                     <p>iPhone of Sean</p>
-                    <div class="bluetooth-box" onclick="connect(this)" style="background-color: #F2F3F4; color: black;">Connected</div>
+                    <div class="bluetooth-box" onclick="connect(this)" style="background-color: #F2F3F4; color: black;">
+                        Connected</div>
 
                 </div>
             </div>
@@ -142,8 +143,7 @@
                             <div onclick="minusFan()" class="air-mini-button-mini-mini">
                                 <p>-</p>
                             </div>
-                            <img id="fanimage" src=" ./img/down-info/air/fan3.png" width="25px"
-                                alt="Fan">
+                            <img id="fanimage" src=" ./img/down-info/air/fan3.png" width="25px" alt="Fan">
                             <div onclick="plusFan()" class="air-mini-button-mini-mini">+</div>
                         </div>
                     </div>
@@ -304,10 +304,12 @@
                                 </div>
                             </a>
 
-                            <div class="menu">
-                                <img src="./img/down-info/door.svg" width="40px" alt="Car">
-                                <p class="app-name">Doors</p>
-                            </div>
+                            <a href="./doors.html" class="transition-fade">
+                                <div class="menu">
+                                    <img src="./img/down-info/door.svg" width="40px" alt="Car">
+                                    <p class="app-name">Doors</p>
+                                </div>
+                            </a>
 
                             <a href="./maps.html" class="transition-fade">
                                 <div class="menu">
@@ -327,13 +329,13 @@
                         <div class="heated-seats">
                             <div style="display: flex; justify-content: space-between; width: 65%;">
                                 <div style="display: flex; flex-direction: column; align-items: center;">
-                                    <img src=" ./img/down-info/heated-seats/seat-left.png" onclick="seatLeft(this)" width="40px"
-                                        alt="Driver Seat">
+                                    <img src=" ./img/down-info/heated-seats/seat-left.png" onclick="seatLeft(this)"
+                                        width="40px" alt="Driver Seat">
 
                                 </div>
                                 <div style="display: flex; flex-direction: column;align-items: center;">
-                                    <img src="./img/down-info/heated-seats/seat-right.png" onclick="seatRight(this)" width="40px"
-                                        alt="Passenger Seat">
+                                    <img src="./img/down-info/heated-seats/seat-right.png" onclick="seatRight(this)"
+                                        width="40px" alt="Passenger Seat">
                                 </div>
                             </div>
                             <p class="app-name" style="margin-top:3.5%">Heated Seats</p>
