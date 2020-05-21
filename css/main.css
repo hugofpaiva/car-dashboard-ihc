@@ -537,8 +537,8 @@ html.is-animating .transition-fade {
 }
 
 @media only screen 
-and (max-device-height : 780px) 
-and (max-device-width : 1200px) 
+and (max-device-height : 800px) 
+and (max-device-width : 1400px) 
  {
   .container{
     width: 1000px;
