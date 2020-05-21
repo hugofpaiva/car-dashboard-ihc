@@ -10,13 +10,84 @@ var contacts = [
   ];
 
   var recentcalls = [
-    ["./img/pedro.jpeg", "Pedro", "today"],
+    ["./img/pedro.jpeg", "Pedro", "yesterday"],
     ["./img/fabiana.jpeg", "Fabiana", "yesterday"],
     ["./img/alberto.jpeg", "Alberto", "yesterday"],
-    ["./img/alfredo.jpeg", "Alfredo", "yesterday"],
+    ["./img/alfredo.jpeg", "Alfredo", "today"],
   ];
 
 function phone() {
+  showRecents()
+}
+
+function getContact(name){
+  for (i = 0; i < contacts.length; i++) {
+    if (contacts[i][1] == name) {
+      return contacts[i]
+    }
+  }
+}
+function makeCall(){
+  bar = document.getElementById("telNumber")
+  num = bar.innerHTML
+  showCall(num)
+}
+
+function showCall(name){
+  var box = document.getElementById("recentbox");
+  box.innerHTML = "";
+  box.style.display = "none"
+
+  var numpad = document.getElementById("numPad");
+  numpad.style.display = "none";
+
+  var call = document.getElementById("callbox");
+  call.style.display = "flex";
+  call.innerHTML = "";
+
+  if(isNaN(name)){
+    contact = getContact(name)
+  } else{
+    contact = ["./img/empty.jpg", name]
+  }
+
+  var image = document.createElement("img");
+  image.id = "callimg"
+  image.style.width = "80%"
+  image.style.height = "70%"
+  image.src = contact[0]
+
+  var namediv = document.createElement("div");
+  namediv.id = "callname"
+  namediv.innerHTML = contact[1]
+  namediv.style = "font-weight: bold; font-size: 2.0vw; height: 10%"
+
+  var timediv = document.createElement("div");
+  timediv.innerHTML = "00:00"
+  namediv.style = "font-weight: bold; font-size: 1.7vw; color: lightgray height: 5%"
+
+  var icon = document.createElement("img")
+  icon.width = "40"
+  icon.height = "40"
+  icon.src = "./img/call2.png"
+  icon.onclick = endCall
+
+  call.appendChild(image);
+  call.appendChild(namediv);
+  call.appendChild(timediv);
+  call.appendChild(icon);
+  
+}
+
+function endCall(){
+  var image = document.getElementById("callimg")
+  var name = document.getElementById("callname")
+
+  var call = document.getElementById("callbox");
+  call.style.display = "none";
+
+  recentcalls.push([image.src,name.innerHTML, "today"])
+
   showRecents()
 }
 
@@ -28,7 +99,7 @@ function showRecents(){
   var numpad = document.getElementById("numPad");
   numpad.style.display = "none";
 
-  for (i = 0; i < recentcalls.length; i++) {
+  for (i = recentcalls.length-1; i >-1; i--) {
 
     var row = document.createElement("div");
     row.style =
@@ -181,6 +252,8 @@ function showContacts(element) {
     symbol.src = "./img/call.png";
     symbol.width = "40";
     symbol.height = "40";
+    symbol.id = letter_contacts[i][1]
+    symbol.setAttribute("onclick","showCall(this.id)")
 
     cbox1.appendChild(row);
     row.appendChild(div1);
