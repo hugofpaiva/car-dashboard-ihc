@@ -217,15 +217,15 @@ function updateTime() {
   document.getElementById("hours").innerHTML = hour + ":" + minutes;
   document.getElementById("date").innerHTML =
     dayWeek + ", " + day + " " + month + " " + year;
-};
+}
 
 function upTime(el) {
-  if(el.value[0] == 0){
-    document.getElementById("hours").innerHTML = el.value.substring(1,5)
+  if (el.value[0] == 0) {
+    document.getElementById("hours").innerHTML = el.value.substring(1, 5);
   } else {
-    document.getElementById("hours").innerHTML = el.value
+    document.getElementById("hours").innerHTML = el.value;
   }
-};
+}
 
 function upDate(el) {
   var days = [
@@ -251,7 +251,7 @@ function upDate(el) {
     "November",
     "December",
   ];
-  var date = el.valueAsDate
+  var date = el.valueAsDate;
   var hour = date.getHours();
   var minutes = date.getMinutes();
   var day = date.getDay();
@@ -261,8 +261,7 @@ function upDate(el) {
   var year = date.getFullYear();
   document.getElementById("date").innerHTML =
     dayWeek + ", " + day + " " + month + " " + year;
-};
-
+}
 
 // FUNÇÕES DE MANUTENÇÃO
 
@@ -506,7 +505,7 @@ function showBluetooth() {
 
   document.getElementById("bluetooth").style.display = "flex";
 
-  if(sessionStorage.getItem('iphone')){
+  if (sessionStorage.getItem("iphone")) {
     document.getElementById("iphone-not-connected").style.display = "none";
     document.getElementById("iphone-connected").style.display = "flex";
   } else {
@@ -523,16 +522,78 @@ function showSystem() {
   document.getElementById("system").style.display = "flex";
 }
 
-function connect(el){
+function connect(el) {
   if (el.innerHTML === "Connected") {
-    sessionStorage.removeItem('iphone', true);
+    sessionStorage.removeItem("iphone", true);
     showBluetooth();
   } else if (el.innerHTML === "Connect") {
-    sessionStorage.setItem('iphone', true);
+    sessionStorage.setItem("iphone", true);
     showBluetooth();
+  } else {
+    console.log("ERROR!");
   }
-  else {
-    console.log("ERROR!")
-  }
+}
 
+function seatRight(el) {
+  var last = el.src.split("/");
+  if (last[last.length - 1] === "seat-right.png") {
+    el.src = "./img/down-info/heated-seats/seat-right1.png";
+  } else if (last[last.length - 1] === "seat-right1.png") {
+    el.src = "./img/down-info/heated-seats/seat-right.png";
+  } else {
+    console.log("ERROR!");
+  }
+}
+
+function seatLeft(el) {
+  var last = el.src.split("/");
+  if (last[last.length - 1] === "seat-left.png") {
+    el.src = "./img/down-info/heated-seats/seat-left1.png";
+  } else if (last[last.length - 1] === "seat-left1.png") {
+    el.src = "./img/down-info/heated-seats/seat-left.png";
+  } else {
+    console.log("ERROR!");
+  }
+}
+
+function plusFan() {
+  var src = document.getElementById("fanimage").src;
+  var srclist = src.split(".");
+  var last =
+    srclist[srclist.length - 2][srclist[srclist.length - 2].length - 1];
+
+  if (last === "n") {
+    document.getElementById("fanimage").src = "./img/down-info/air/fan.png";
+  } else {
+    last = parseInt(last);
+    last--;
+    if (last > 0) {
+      document.getElementById(
+        "fanimage"
+      ).src = `./img/down-info/air/fan${last}.png`;
+    } else {
+      document.getElementById("fanimage").src = "./img/down-info/air/fan.png";
+    }
+  }
+}
+
+function minusFan() {
+  var src = document.getElementById("fanimage").src;
+  var srclist = src.split(".");
+  var last =
+    srclist[srclist.length - 2][srclist[srclist.length - 2].length - 1];
+
+  if (last === "n") {
+    document.getElementById("fanimage").src = "./img/down-info/air/fan1.png";
+  } else {
+    last = parseInt(last);
+    last++;
+    if (last <= 4) {
+      document.getElementById(
+        "fanimage"
+      ).src = `./img/down-info/air/fan${last}.png`;
+    } else {
+      document.getElementById("fanimage").src = "./img/down-info/air/fan4.png";
+    }
+  }
 }
