@@ -603,7 +603,6 @@ function minusFan() {
 
 function door(el) {
   var id = el.className;
-  console.log(id);
   el = document.getElementById(id);
   var src = el.src.split("/");
 
