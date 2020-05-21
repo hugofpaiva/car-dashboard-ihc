@@ -600,3 +600,18 @@ function minusFan() {
     }
   }
 }
+
+function door(el) {
+  var id = el.className;
+  console.log(id);
+  el = document.getElementById(id);
+  var src = el.src.split("/");
+
+  if (src[src.length - 1] === "lock.svg") {
+    el.src = "./img/doors/unlock.png";
+  } else if (src[src.length - 1] === "unlock.png"){
+    el.src = "./img/doors/lock.svg";
+  }else {
+    console.log("ERROR!");
+  }
+}

@@ -75,29 +75,46 @@
 
                     <div style="height: 100%;display: flex; justify-content: center;">
                         <div
-                            style="height: 100%; width: 35%; display: flex; justify-content: center; margin-top: 5%; margin-right: 5%;">
+                            style="height: 100%; width: 35%; display: flex; justify-content: center; margin-right: 5%;">
                             <div
                                 style="display: flex; flex-direction: column; height: 100%; width: 100%; justify-content: space-between;">
-                                <div style="display: flex; width: 100%; height: 50%; display: flex; justify-content: flex-end;">
+                                <div
+                                    style="display: flex; width: 100%; height: 50%; display: flex; justify-content: flex-end;">
+                                    <div
+                                        style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center; margin-top: 10%;">
+                                        <p class="app-name" style="margin: 0; font-size: medium;">UP</p>
+                                        <input type="range" min="1" orient="vertical" max="100" value="50"
+                                            class="sliderdoors" id="myRange">
+                                        <p class="app-name" style="margin: 0; font-size: medium;">DOWN</p>
+                                    </div>
                                     <div class="item"
-                                        style="display: flex; justify-content: center; align-items: center; width: 125px; height: 125px;">
-                                        <div
+                                        style="display: flex; justify-content: center; align-items: center; width: 125px; height: 125px; margin-top: 15%;">
+                                        <div class="door1" onclick="door(this)"
                                             style="display: flex; flex-direction: column; justify-content: flex-end; align-items: center;">
-                                            <img src="./img/doors/lock.svg" width="55%">
+                                            <img id="door1" src="./img/doors/lock.svg" width="55%">
                                             <p style="margin: 0; padding-top: 10%; font-size:medium;" class="app-name">
-                                                PORTA</p>
+                                                DOOR</p>
                                         </div>
                                     </div>
+                                    
                                 </div>
 
-                                <div style="display: flex; width: 100%; height: 50%; display: flex; justify-content: flex-end;">
+                                <div
+                                    style="display: flex; width: 100%; height: 50%; display: flex; justify-content: flex-end;">
+                                    <div
+                                        style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center; margin-top: 10%;">
+                                        <p class="app-name" style="margin: 0; font-size: medium;">UP</p>
+                                        <input type="range" min="1" orient="vertical" max="100" value="50"
+                                            class="sliderdoors" id="myRange">
+                                        <p class="app-name" style="margin: 0; font-size: medium;">DOWN</p>
+                                    </div>
                                     <div class="item"
-                                        style="display: flex; justify-content: center; align-items: center; width: 125px; height: 125px;">
-                                        <div
+                                        style="display: flex; justify-content: center; align-items: center; width: 125px; height: 125px; margin-top: 15%;">
+                                        <div class="door2" onclick="door(this)"
                                             style="display: flex; flex-direction: column; justify-content: flex-end; align-items: center;">
-                                            <img src="./img/doors/lock.svg" width="55%">
+                                            <img id="door2" src="./img/doors/lock.svg" width="55%">
                                             <p style="margin: 0; padding-top: 10%; font-size:medium;" class="app-name">
-                                                PORTA</p>
+                                                DOOR</p>
                                         </div>
                                     </div>
                                 </div>
@@ -107,30 +124,44 @@
                         </div>
                         <img class="fadeinbottom" src=" ./img/tesla-up.png" width="25%" alt="Car">
                         <div
-                            style="height: 100%; width: 35%; display: flex; justify-content: flex-start; margin-top: 5%; margin-left: 5%;">
+                            style="height: 100%; width: 35%; display: flex; justify-content: flex-start; margin-left: 5%;">
                             <div
                                 style="display: flex; flex-direction: column; height: 100%; width: 100%; justify-content: space-between;">
                                 <div style="display: flex; width: 100%; height: 50%;">
                                     <div class="item"
-                                        style="display: flex; justify-content: center; align-items: center; width: 125px; height: 125px;">
-                                        <div
+                                        style="display: flex; justify-content: center; align-items: center; width: 125px; height: 125px; margin-top: 15%;">
+                                        <div class="door3" onclick="door(this)"
                                             style="display: flex; flex-direction: column; justify-content: flex-end; align-items: center;">
-                                            <img src="./img/doors/lock.svg" width="55%">
+                                            <img id="door3" src="./img/doors/lock.svg" width="55%">
                                             <p style="margin: 0; padding-top: 10%; font-size:medium;" class="app-name">
-                                                PORTA</p>
+                                                DOOR</p>
                                         </div>
+                                    </div>
+                                    <div
+                                        style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center; margin-top: 10%;">
+                                        <p class="app-name" style="margin: 0; font-size: medium;">UP</p>
+                                        <input type="range" min="1" orient="vertical" max="100" value="50"
+                                            class="sliderdoors" id="myRange">
+                                        <p class="app-name" style="margin: 0; font-size: medium;">DOWN</p>
                                     </div>
                                 </div>
 
                                 <div style="display: flex; width: 100%; height: 50%;">
                                     <div class="item"
-                                        style="display: flex; justify-content: center; align-items: center; width: 125px; height: 125px;">
-                                        <div
+                                        style="display: flex; justify-content: center; align-items: center; width: 125px; height: 125px; margin-top: 15%;">
+                                        <div class="door4" onclick="door(this)"
                                             style="display: flex; flex-direction: column; justify-content: flex-end; align-items: center;">
-                                            <img src="./img/doors/lock.svg" width="55%">
+                                            <img id="door4" src="./img/doors/lock.svg" width="55%">
                                             <p style="margin: 0; padding-top: 10%; font-size:medium;" class="app-name">
-                                                PORTA</p>
+                                                DOOR</p>
                                         </div>
+                                    </div>
+                                    <div
+                                        style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center; margin-top: 10%;">
+                                        <p class="app-name" style="margin: 0; font-size: medium;">UP</p>
+                                        <input type="range" min="1" orient="vertical" max="100" value="50"
+                                            class="sliderdoors" id="myRange">
+                                        <p class="app-name" style="margin: 0; font-size: medium;">DOWN</p>
                                     </div>
                                 </div>
 
