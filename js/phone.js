@@ -163,7 +163,7 @@ function showNum(){
 function showSos(){
   showNum()
   var bar = document.getElementById("telNumber");
-  bar.innerHTML = "122"
+  bar.innerHTML = "112"
 
   var ic1 = document.getElementById("ic1");
   var ic2 = document.getElementById("ic2");
