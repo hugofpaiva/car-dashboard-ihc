@@ -15,7 +15,7 @@
 
 </head>
 
-<body onresize="resize()">
+<body onresize="resize()" oncontextmenu="return false">
 
     <div class="container">
         <div class="top-info">
@@ -35,7 +35,16 @@
 
 
         </div>
-        <div class="settings-modal box-fadein"></div>
+        <div class="settings-modal box-fadein">
+            <div style="height: 90%; width: 37.5%; display: flex; flex-direction: column; align-items: center;">
+                <div class="settings-box">Clock</div>
+                <div class="settings-box">Sound</div>
+                <div class="settings-box">Bluetooth</div>
+                <div class="settings-box">System</div>
+            </div>
+            <div class="v-line" style="height: 92.5%;"></div>
+            <div style="height: 100%; width: 62.5%;"></div>
+        </div>
         <div class="air-modal box-fadein">
             <div class="air-flex">
                 <div style="width: 100%; height: 25%;">

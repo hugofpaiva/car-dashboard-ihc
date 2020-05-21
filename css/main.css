@@ -12,6 +12,13 @@ body {
   font-size: larger;
   color: white;
   cursor: url('../img/touch-cursor-64.png'), auto !important;
+  /*Disabel Text Selector*/
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .container {
@@ -143,6 +150,20 @@ body {
   height: 75%;
 }
 
+.settings-box {
+  width: 80%;
+  height: 10%;
+  border: solid;
+  border-radius: 20%/ 50%;
+  border-color: white;
+  border-width: 2px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+
 .air-box {
   width: 80%;
   height: 60%;
@@ -261,7 +282,7 @@ a:hover, a:visited, a:link, a:active {
   width: 10%;
   height: 19%;
   background-color: #1B224C;
-  color:white
+  color: white
 }
 
 .air-mini-button-mini {
@@ -273,7 +294,7 @@ a:hover, a:visited, a:link, a:active {
   width: 35%;
   height: 90%;
   background-color: #F2F3F4;
-  color:black
+  color: black
 }
 
 .air-mini-button-mini-mini {
@@ -289,25 +310,10 @@ a:hover, a:visited, a:link, a:active {
 }
 
 .slider {
-
-
   width: 100%;
-  /* Full-width */
   height: 100%;
-
-  /* Grey background */
-  
   -webkit-appearance: slider-vertical;
-  background-color: #F2F3F4;
-
-
-
-
 }
-
-
-
-
 
 .circle {
   width: 20%;
