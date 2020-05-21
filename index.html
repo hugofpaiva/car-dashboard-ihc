@@ -39,14 +39,15 @@
             <div style="height: 90%; width: 37.5%;">
                 <div
                     style="height: 60%; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
-                    <div class="settings-box">Clock</div>
-                    <div class="settings-box">Sound</div>
-                    <div class="settings-box">Bluetooth</div>
-                    <div class="settings-box">System</div>
+                    <div class="settings-box" onclick="showClock()">Clock</div>
+                    <div class="settings-box" onclick="showSound()">Sound</div>
+                    <div class="settings-box" onclick="showBluetooth()">Bluetooth</div>
+                    <div class="settings-box" onclick="showSystem()">System</div>
                 </div>
             </div>
             <div class="v-line" style="height: 92.5%;"></div>
-            <div id="clock" style="height: 90%; width: 62.5%; display: flex;flex-direction: column; align-items: center;">
+            <div id="clock"
+                style="height: 90%; width: 62.5%; display: flex;flex-direction: column; align-items: center;">
                 <div
                     style="width: 90%; height: 10%; display: flex; justify-content: space-between; align-items: center; margin-top: 25px;">
                     <p>Adjust Time</p>
@@ -58,28 +59,54 @@
                 <div
                     style="width: 90%; height: 10%; display: flex; justify-content: space-between; align-items: center; margin-top: 25px;">
                     <p>Adjust Data</p>
-                    <input id="date" type="date" style="height:50%;"
-                        onchange="upDate(this)" required>
+                    <input id="date" type="date" style="height:50%;" onchange="upDate(this)" required>
 
                 </div>
             </div>
 
-            <div id="sound" style="height: 90%; width: 62.5%; display: flex;flex-direction: column; align-items: center; display: none;">
+            <div id="sound"
+                style="height: 90%; width: 62.5%; display: flex;flex-direction: column; align-items: center; display: none;">
                 <div
                     style="width: 90%; height: 10%; display: flex; justify-content: space-between; align-items: center; margin-top: 25px;">
-                    <p>Adjust Time</p>
-                    <input type="time" id="appt" name="appt" min="00:00" max="23:59" style="height:50%;"
-                        onchange="upTime(this)" required>
+                    <p>Bass</p>
+                    <input type="range" min="1" max="100" value="50" id="myRange">
 
                 </div>
 
                 <div
                     style="width: 90%; height: 10%; display: flex; justify-content: space-between; align-items: center; margin-top: 25px;">
-                    <p>Adjust Data</p>
-                    <input id="date" type="date" style="height:50%;"
-                        onchange="upDate(this)" required>
+                    <p>Treble</p>
+                    <input type="range" min="1" max="100" value="50" id="myRange">
 
                 </div>
+
+                <div
+                    style="width: 90%; height: 10%; display: flex; justify-content: space-between; align-items: center; margin-top: 25px;">
+                    <p>Balance</p>
+                    <input type="range" min="1" max="100" value="50" id="myRange">
+
+                </div>
+            </div>
+
+            <div id="bluetooth"
+                style="height: 90%; width: 62.5%; display: flex;flex-direction: column; align-items: center; display: none;">
+                <div
+                    id="iphone-not-connected" style="width: 90%; height: 10%; display: flex; justify-content: space-between; align-items: center; margin-top: 25px; display: none">
+                    <p>iPhone of Sean</p>
+                    <div class="bluetooth-box" onclick="connect(this)" id="bluetooth-connect">Connect</div>
+
+                </div>
+                <div
+                    id="iphone-connected" style="width: 90%; height: 10%; display: flex; justify-content: space-between; align-items: center; margin-top: 25px; display: none">
+                    <p>iPhone of Sean</p>
+                    <div class="bluetooth-box" onclick="connect(this)" style="background-color: #F2F3F4; color: black;">Connected</div>
+
+                </div>
+            </div>
+
+            <div id="system"
+                style="height: 90%; width: 62.5%; display: flex;flex-direction: column; align-items: center; display: none;">
+
             </div>
         </div>
         <div class="air-modal box-fadein">

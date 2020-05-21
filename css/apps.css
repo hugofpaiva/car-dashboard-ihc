@@ -25,6 +25,15 @@
     /*margin: 5px;*/
     background-color: #01042A;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+}
+
+#bluetooth-connect{
+    box-shadow: 0px 0px 14px 5px rgba(255, 255, 255, 0.5);
+}
+
+#bluetooth-connect:active{
+    box-shadow: 0px 0px 14px 5px rgba(255, 255, 255, 0.8);
 }

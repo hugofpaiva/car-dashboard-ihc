@@ -482,3 +482,57 @@ function minusTemp(side) {
     }
   }
 }
+
+function showSound() {
+  document.getElementById("clock").style.display = "none";
+  document.getElementById("bluetooth").style.display = "none";
+  document.getElementById("system").style.display = "none";
+
+  document.getElementById("sound").style.display = "flex";
+}
+
+function showClock() {
+  document.getElementById("sound").style.display = "none";
+  document.getElementById("bluetooth").style.display = "none";
+  document.getElementById("system").style.display = "none";
+
+  document.getElementById("clock").style.display = "flex";
+}
+
+function showBluetooth() {
+  document.getElementById("clock").style.display = "none";
+  document.getElementById("sound").style.display = "none";
+  document.getElementById("system").style.display = "none";
+
+  document.getElementById("bluetooth").style.display = "flex";
+
+  if(sessionStorage.getItem('iphone')){
+    document.getElementById("iphone-not-connected").style.display = "none";
+    document.getElementById("iphone-connected").style.display = "flex";
+  } else {
+    document.getElementById("iphone-connected").style.display = "none";
+    document.getElementById("iphone-not-connected").style.display = "flex";
+  }
+}
+
+function showSystem() {
+  document.getElementById("clock").style.display = "none";
+  document.getElementById("sound").style.display = "none";
+  document.getElementById("bluetooth").style.display = "none";
+
+  document.getElementById("system").style.display = "flex";
+}
+
+function connect(el){
+  if (el.innerHTML === "Connected") {
+    sessionStorage.removeItem('iphone', true);
+    showBluetooth();
+  } else if (el.innerHTML === "Connect") {
+    sessionStorage.setItem('iphone', true);
+    showBluetooth();
+  }
+  else {
+    console.log("ERROR!")
+  }
+
+}
