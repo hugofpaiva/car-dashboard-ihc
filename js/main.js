@@ -29,6 +29,63 @@ function init() {
       initAutocomplete();
     }
 
+    if (document.querySelector("#musics-inject")) {
+      var musicDetail = [
+        {
+          name: "sunil",
+          age: "24",
+          place: "delhi",
+          avatar: "../img/music/radio/rfm.png",
+          time: "3:06",
+          country: "India",
+        },
+        {
+          name: "sujan",
+          age: "22",
+          place: "assam,",
+          avatar: "../img/music/radio/rfm.png",
+          time: "2:06",
+          country: "India",
+        },
+        {
+          name: "abishek",
+          age: "26",
+          place: "kolkata",
+          avatar: "../img/music/radio/rfm.png",
+          time: "5:06",
+          country: "India",
+        },
+        {
+          name: "When I met you in the summer asd",
+          age: "20",
+          place: "bangalore",
+          avatar: "../img/music/radio/rfm.png",
+          time: "7:06",
+          country: "India",
+        },
+      ];
+
+      document.getElementById("musics-inject").innerHTML = musicDetail
+        .map(
+          (music) =>
+            `<div
+      style="height: 20%; width: 100%; border-top: 2px solid rgba(255, 255, 255, 0.452); display: flex; justify-content: space-between; align-items: center;">
+      <img src="${music.avatar}" width="30%" height="70%">
+      <div style="width: 65%; display: flex; align-items: center; justify-content: space-between;">
+          <div style="width:72.5%;">
+              <p style="font-size:small; font-weight: bold; ">${music.name}</p>
+              <p style="font-size:small">${music.place}</p>
+          </div>
+          <div style="width:12.5%; display:flex; justify-content: flex-end;">
+          <p style="font-size: small; margin-right: 5px;">${music.time}</p>
+          </div>
+      </div>
+  </div>
+`
+        )
+        .join("");
+    }
+
     if (document.querySelector("#car")) {
       var circles = [circle1, circle2];
       var perc = [0.5, 0.8];

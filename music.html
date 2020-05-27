@@ -23,16 +23,52 @@
         <div id="swup" class="content transition-fade" style="flex-direction: column ; align-items: center;">
             <div style="height: 100%; width: 90%; display: flex; justify-content: space-between;">
                 <div class="box" style="height: 100%; width: 72.5%; display: flex;">
-                    <div style="height: 100%; width: 65%; display: flex; flex-direction: column; align-items: center;">
-                        <div style="height: 15%;"></div>
-                        <div style="width: 50%; height: 45%;">
-                            <img src="./img/music/radio/rfm.png" width="100%" height="100%">
+                    <div style="width: 65%; height: 100%; display: flex">
+                        <div
+                            style="height: 100%; width: 90%; display: flex; flex-direction: column; align-items: center;">
+                            <div style="height: 15%; display: flex; align-items: center;">
+                                <input type="text" placeholder="Search...">
+
+                            </div>
+                            <div style="width: 50%; height: 40%;">
+                                <img src="./img/music/radio/rfm.png" width="100%" height="100%">
+                            </div>
+                            <div
+                                style="width: 100%; height: 35%; display: flex; flex-direction: column; align-items: center; justify-content: space-evenly;">
+                                <h3>Música</h3>
+                                <p style="font-size:medium;">Artista</p>
+                                <div style="width: 65%; display: flex; flex-direction: column; align-items: center;">
+                                    <div id="mslider" style="margin-bottom: 20px;"></div>
+                                    <div style="display: flex; justify-content: space-around; width: 100%;">
+                                        <img src="./img/music/controls/left.svg" width="55px" alt="Previous">
+                                        <img src="./img/music/controls/pause.svg" width="55px" alt="Pause"
+                                            onclick="triggerMusic()">
+                                        <img src="./img/music/controls/right.svg" width="55px" alt="Next">
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
-                        <div style="width: 100%; height: 35%;"></div>
+                        <div class="slidecontainer"
+                            style="width: 10%; display: flex;  flex-direction: column; justify-content: center; align-items: flex-start;">
+                            <img src="./img/music/controls/sound.svg" width="80%" height="20%">
+                            <div class="slider-style" style="height:50%; width: 67.5%;">
+                                <input type="range" min="1" orient="vertical" max="100" value="50" class="slider"
+                                    id="myRange">
+                            </div>
+                        </div>
 
                     </div>
+
                     <div class="v-line" style="height: 95%;"></div>
-                    <div style="height: 100%; width: 35%;"></div>
+                    <div
+                        style="height: 100%; width: 35%; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden;">
+                        <div
+                            style="height: 90%; width: 90%; display: flex; flex-direction: column; align-items: center;overflow: scroll;" id="musics-inject">
+
+
+                        </div>
+                    </div>
                 </div>
 
                 <div class="box"

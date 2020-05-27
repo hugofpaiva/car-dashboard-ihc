@@ -20,6 +20,11 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 .container {
@@ -561,3 +566,4 @@ html.is-animating .transition-fade {
     height: 650px;
   }
 }
+
