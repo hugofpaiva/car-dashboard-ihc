@@ -178,11 +178,6 @@ body {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-.settings-modal input {
-  border-radius: 25%/ 60%;
-  text-align: center;
-}
-
 .air-box {
   width: 80%;
   height: 60%;
@@ -352,6 +347,10 @@ a:hover, a:visited, a:link, a:active {
 
 html.is-animating .transition-fade {
   opacity: 0;
+}
+
+.range-controls{
+  font-size: x-large;
 }
 
 /*
