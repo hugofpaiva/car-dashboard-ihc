@@ -7,6 +7,7 @@ var playing = {
   time: "3:06",
 };
 sessionStorage.setItem("actualmusic", JSON.stringify(playing));
+sessionStorage.setItem("changeplay", JSON.stringify(true));
 
 var musicDetail = [
   {
@@ -175,7 +176,7 @@ var radioDetail = [
   },
 ];
 
-var playing = sessionStorage.getItem("actualmusic");
+var playing = JSON.parse(sessionStorage.getItem("actualmusic"));
 
 function music() {
   radio = true;
@@ -272,21 +273,17 @@ function change(el) {
 }
 
 function playM() {
-  console.log("ASF1");
   var playing = JSON.parse(sessionStorage.getItem("actualmusic"));
 
   document.getElementById("music").innerHTML = playing.name;
   document.getElementById("mname").innerHTML = playing.name;
   document.getElementById("martist").innerHTML = playing.artist;
-  console.log("ASF2");
   if (document.getElementById("malbum") != null) {
-    console.log("CIMA");
     document.getElementById("malbum").src = playing.image;
   } else {
-    console.log("BAIXO");
-    console.log(document.getElementsByClassName("music")[0].style.backgroundImage)
-    document.getElementsByClassName("music")[0].style.backgroundImage =
-    `url(${playing.image})`;
+    document.getElementsByClassName(
+      "music"
+    )[0].style.backgroundImage = `url(${playing.image})`;
   }
 }
 
@@ -301,4 +298,24 @@ function clickMusic(el) {
   };
   sessionStorage.setItem("actualmusic", JSON.stringify(playing));
   playM();
+}
+
+function changePlay() {
+  if (JSON.parse(sessionStorage.getItem("changeplay"))) {
+    document.getElementById("changePlay").src = "./img/music/controls/play.svg";
+    sessionStorage.setItem("changeplay", JSON.stringify(false));
+  } else {
+    document.getElementById("changePlay").src =
+      "./img/music/controls/pause.svg";
+    sessionStorage.setItem("changeplay", JSON.stringify(true));
+  }
+}
+
+function checkPlay() {
+  if (JSON.parse(sessionStorage.getItem("changeplay"))) {
+    document.getElementById("changePlay").src =
+      "./img/music/controls/pause.svg";
+  } else {
+    document.getElementById("changePlay").src = "./img/music/controls/play.svg";
+  }
 }

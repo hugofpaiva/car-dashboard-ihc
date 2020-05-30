@@ -12,6 +12,7 @@ function init() {
   try {
     if (document.querySelector("#index")) {
       playM();
+      checkPlay();
       temp();
       if (sessionStorage.getItem("Weather") != null) {
         var data = JSON.parse(sessionStorage.getItem("Weather"));
@@ -35,6 +36,7 @@ function init() {
     if (document.querySelector("#musics-inject")) {
       music();
       playM();
+      checkPlay();
     }
 
     if (document.querySelector("#car")) {
