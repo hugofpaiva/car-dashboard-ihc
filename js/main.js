@@ -358,7 +358,7 @@ function settingsResize() {
     width * 0.45 + "px";
 }
 
-function triggerMusic() {
+function triggerMusic(duration) {
   var bar = new ProgressBar.Line(mslider, {
     strokeWidth: 4,
     easing: "linear",
@@ -371,7 +371,7 @@ function triggerMusic() {
 
   bar.animate(1.0);
   progressBar.animate(0.3, {
-    duration: 800,
+    duration: duration,
   });
 }
 

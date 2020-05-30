@@ -16,19 +16,6 @@
 
     <div class="container" style="font-family: 'Roboto'; color: white;">
         <div class="top-info">
-            <div class="info">
-                <p id="hours" style="font-weight: bold;">19:20</p>
-                <p id="date" class="opacity-letters">Friday, 5 May 2020</p>
-                <p id="temperature" style="font-weight: bold;">22</p>
-                <p style="margin-left: 0;"" class=" opacity-letters">ºC</p>
-            </div>
-
-            <div class="info" style="justify-content: flex-end;">
-                <p id="music">RFM</p>
-                <div style="display: flex; align-items: center;" onclick="openSettings()">
-                    <img src="./img/top-info/wrench.png" width="60px" alt="Wrench">
-                </div>
-            </div>
         </div>
 
         <div id="swup" class="content transition-fade">
@@ -196,80 +183,7 @@
                     </div>
                 </div>
             </div>
-            <div class="down-info">
-                <div class="air-conditioner" onclick="openAir()">
-                    <div class="air-box">
-                        <p id="airtemp">22ºC</p>
-                        <img src="./img/down-info/air/air.svg" width="40px" alt="Airconditioner">
-                    </div>
-                </div>
-                <div class="v-line"></div>
-                <div class="navbar">
-                    <a href="./index.html" class="transition-fade">
-                        <div class="menu">
-                            <img src="./img/down-info/home.svg" width="40px" alt="Home">
-                            <p class="app-name">Home</p>
-                        </div>
-                    </a>
-                    <a href="./phone.html" class="transition-fade">
-                        <div class="menu">
-                            <img src="./img/down-info/phone.svg" width="40px" alt="Phone">
-                            <p class="app-name">Phone</p>
-                        </div>
-                    </a>
-                    <a href="./music.html" class="transition-fade">
-                        <div class="menu">
-                            <img src="./img/down-info/radio.svg" width="40px" alt="Radio">
-                            <p class="app-name">Audio</p>
-                        </div>
-                    </a>
-
-                    <a href="./car.html" class="transition-fade">
-                        <div class="menu">
-                            <img src="./img/down-info/tesla.png" width="105px" alt="Car">
-                            <p class="app-name">Car Info</p>
-                        </div>
-                    </a>
-
-                    <a href="./doors.html" class="transition-fade">
-                        <div class="menu">
-                            <img src="./img/down-info/door.svg" width="40px" alt="Car">
-                            <p class="app-name">Doors</p>
-                        </div>
-                    </a>
-
-                    <a href="./maps.html" class="transition-fade">
-                        <div class="menu">
-                            <img src="./img/down-info/navigation.svg" width="40px" alt="Navigation">
-                            <p class="app-name">Navi</p>
-                        </div>
-                    </a>
-
-                    <a href="./apps.html" class="transition-fade">
-                        <div class="menu">
-                            <img src="./img/down-info/apps.svg" width="40px" alt="Apps">
-                            <p class="app-name">Apps</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="v-line"></div>
-                <div class="heated-seats">
-                    <div style="display: flex; justify-content: space-between; width: 65%;">
-                        <div style="display: flex; flex-direction: column; align-items: center;">
-                            <img src=" ./img/down-info/heated-seats/seat-left.png" onclick="seatLeft(this)" width="40px"
-                                alt="Driver Seat">
-
-                        </div>
-                        <div style="display: flex; flex-direction: column;align-items: center;">
-                            <img src="./img/down-info/heated-seats/seat-right.png" onclick="seatRight(this)"
-                                width="40px" alt="Passenger Seat">
-                        </div>
-                    </div>
-                    <p class="app-name" style="margin-top:3.5%">Heated Seats</p>
-                </div>
-
-
-            </div>
+            <div class="down-info"></div>
         </div>
         <script src="./node_modules/swup/dist/swup.min.js"></script>
         <script src="./node_modules/@swup/body-class-plugin/dist/SwupBodyClassPlugin.min.js"></script>
