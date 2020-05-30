@@ -319,3 +319,65 @@ function checkPlay() {
     document.getElementById("changePlay").src = "./img/music/controls/play.svg";
   }
 }
+
+function nextMusic() {
+  var playing = JSON.parse(sessionStorage.getItem("actualmusic"));
+  var flag = false;
+  var found = -1;
+  found = radioDetail.findIndex(
+    (element) => element.name == playing.name
+  );
+  if (found == -1) {
+    found = musicDetail.findIndex((element) => element.name == playing.name);
+    flag=true;
+  }
+
+
+  if (!flag) {
+    if (found + 1 == radioDetail.length) {
+      var playing = radioDetail[0];
+    } else {
+      var playing = radioDetail[found + 1];
+    }
+  } else {
+    if (found + 1 == musicDetail.length) {
+      var playing = musicDetail[0];
+    } else {
+      var playing = musicDetail[found + 1];
+    }
+  }
+  
+  sessionStorage.setItem("actualmusic", JSON.stringify(playing));
+  playM();
+}
+
+function previousMusic() {
+  var playing = JSON.parse(sessionStorage.getItem("actualmusic"));
+  var flag = false;
+  var found = -1;
+  found = radioDetail.findIndex(
+    (element) => element.name == playing.name
+  );
+  if (found == -1) {
+    found = musicDetail.findIndex((element) => element.name == playing.name);
+    flag = true;
+  }
+
+
+  if (!flag) {
+    if (found == 0) {
+      var playing = radioDetail[radioDetail.length-1];
+    } else {
+      var playing = radioDetail[found - 1];
+    }
+  } else {
+    if (found == 0) {
+      var playing = musicDetail[musicDetail.length-1];
+    } else {
+      var playing = musicDetail[found - 1];
+    }
+  }
+  
+  sessionStorage.setItem("actualmusic", JSON.stringify(playing));
+  playM();
+}
