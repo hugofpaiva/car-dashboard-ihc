@@ -11,14 +11,17 @@ var swup = new Swup(options);
 function init() {
   try {
     if (document.querySelector("#index")) {
+      playM();
+      temp();
       if (sessionStorage.getItem("Weather") != null) {
-        getLocation();
+        var data = JSON.parse(sessionStorage.getItem("Weather"));
+        console.log("A ir buscar à cache!");
+        updateDom(data);
       } else {
         getLocation();
         var timer = setInterval(checkWeather, 5000);
       }
       setInterval(getLocation, 3600000);
-      temp();
     }
 
     if (document.querySelector("#phone")) {
@@ -30,7 +33,8 @@ function init() {
     }
 
     if (document.querySelector("#musics-inject")) {
-      music()
+      music();
+      playM();
     }
 
     if (document.querySelector("#car")) {
@@ -356,23 +360,6 @@ function settingsResize() {
     "px";
   document.getElementsByClassName("settings-modal")[0].style.width =
     width * 0.45 + "px";
-}
-
-function triggerMusic(duration) {
-  var bar = new ProgressBar.Line(mslider, {
-    strokeWidth: 4,
-    easing: "linear",
-    duration: 100400,
-    color: "#FFEA82",
-    trailColor: "#eee",
-    trailWidth: 1,
-    svgStyle: { width: "100%", height: "100%" },
-  });
-
-  bar.animate(1.0);
-  progressBar.animate(0.3, {
-    duration: duration,
-  });
 }
 
 function tirePressure() {
