@@ -37,43 +37,46 @@ function init() {
       music();
       playM();
       checkPlay();
-      changeVolume()
+      changeVolume();
     }
 
     if (document.querySelector("#car")) {
       var circles = [circle1, circle2];
       var perc = [0.5, 0.8];
       var count = 0;
-        circles.forEach((el) => {
-          var bar = new ProgressBar.Circle(el, {
-            color: "#58C2F7",
-            trailColor: "#fff",
-            trailWidth: 8,
-            duration: 1400,
-            easing: "easeOut",
-            strokeWidth: 8,
-            from: { color: "#58C2F7", a: 0 },
-            to: { color: "#58C2F7", a: 1 },
-            // Set default step function for all animate calls
-            step: function (state, circle) {
-              circle.path.setAttribute("stroke", state.color);
-              if (el == circle1) {
-                circle.setText(
-                  '<span style="font-weight:bold">2</span> <span class="opacity-letters">bar</span>'
-                );
-              } else {
-                circle.setText(
-                  '<span style="font-weight:bold">500</span> <span class="opacity-letters">km</span>'
-                );
-              }
-            },
-          });
-          bar.text.style.margin = "30% 0";
-          bar.text.style.color = "white";
-          bar.text.style.fontFamily = "Montserrat";
-          bar.animate(perc[count]);
-          count++;
+      circles.forEach((el) => {
+        var bar = new ProgressBar.Circle(el, {
+          color: "#58C2F7",
+          trailColor: "#fff",
+          trailWidth: 8,
+          duration: 1400,
+          easing: "easeOut",
+          strokeWidth: 8,
+          from: { color: "#58C2F7", a: 0 },
+          to: { color: "#58C2F7", a: 1 },
+          // Set default step function for all animate calls
+          step: function (state, circle) {
+            circle.path.setAttribute("stroke", state.color);
+            if (el == circle1) {
+              circle.setText(
+                '<span style="font-weight:bold">2</span> <span class="opacity-letters">bar</span>'
+              );
+            } else {
+              circle.setText(
+                '<span style="font-weight:bold">500</span> <span class="opacity-letters">km</span>'
+              );
+            }
+          },
         });
+        bar.text.style.margin = "30% 0";
+        bar.text.style.color = "white";
+        bar.text.style.fontFamily = "Montserrat";
+        bar.animate(perc[count]);
+        count++;
+      });
+    }
+    if (document.querySelector("#janela1")) {
+      changeWindows();
     }
   } catch (error) {
     console.error(error);
@@ -644,4 +647,21 @@ function showWarning(text) {
   document.getElementsByClassName("warning-modal")[0].style.display = "flex";
   warningResize();
   document.getElementById("text-warning").innerHTML = text;
+}
+
+sessionStorage.setItem("janela1", "100");
+sessionStorage.setItem("janela2", "100");
+sessionStorage.setItem("janela3", "100");
+sessionStorage.setItem("janela4", "100");
+
+function windows(el) {
+  sessionStorage.setItem(el.id, el.value);
+  changeWindows();
+}
+
+function changeWindows() {
+  document.getElementById("janela1").value = sessionStorage.getItem("janela1");
+  document.getElementById("janela2").value = sessionStorage.getItem("janela2");
+  document.getElementById("janela3").value = sessionStorage.getItem("janela3");
+  document.getElementById("janela4").value = sessionStorage.getItem("janela4");
 }
