@@ -1,5 +1,7 @@
 var radio = true;
 
+sessionStorage.setItem("volume", "80");
+
 var playing = {
   name: "RFM",
   artist: "Bad Karma",
@@ -207,7 +209,7 @@ function music() {
 
 function bluetooth() {
   if (!JSON.parse(sessionStorage.getItem("connected"))) {
-    showWarning('Please Connect a bluetooth device on settings')
+    showWarning("Please Connect a bluetooth device on settings");
   } else {
     radio = false;
     document.getElementById("musics-inject").innerHTML = musicDetail
@@ -382,4 +384,44 @@ function previousMusic() {
 
   sessionStorage.setItem("actualmusic", JSON.stringify(playing));
   playM();
+}
+
+function volume(el) {
+  sessionStorage.setItem("volume", el.value);
+  if (el.value > 1) { // por algum motivo o slider só permite meter no mínimo 1
+    sessionStorage.setItem("oldvolume", el.value);
+    try {
+      document.getElementById("music-toggle").src = "./img/music/controls/sound.svg";
+    } catch {}
+  } else if (el.value == 1){
+    try {
+      document.getElementById("music-toggle").src = "./img/music/controls/nosound.svg";
+    } catch {}
+  }
+  console.log(el.value);
+  changeVolume();
+}
+function changeVolume() {
+  var volume = sessionStorage.getItem("volume");
+
+  try {
+    document.getElementById("volume1").value = volume;
+  } catch {}
+
+  try {
+    document.getElementById("volume2").value = volume;
+  } catch {}
+}
+
+function noVolume(el) {
+  var volume = sessionStorage.getItem("volume");
+  if (parseInt(volume) > 1) {
+    el.src = "./img/music/controls/nosound.svg";
+    sessionStorage.setItem("oldvolume", volume);
+    sessionStorage.setItem("volume", "0");
+  } else {
+    el.src = "./img/music/controls/sound.svg";
+    sessionStorage.setItem("volume", sessionStorage.getItem("oldvolume"));
+  }
+  changeVolume();
 }

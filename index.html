@@ -53,7 +53,7 @@
                 <div
                     style="width: 90%; height: 10%; display: flex; justify-content: space-between; align-items: center; margin-top: 25px;">
                     <p>Adjust Time</p>
-                    <input type="time" id="appt" style="border-radius: 9999em; text-align: center;" name="appt"
+                    <input type="time" id="appt" style="border-radius: 9999em; text-align: center; outline: none;" name="appt"
                         min="00:00" max="23:59" style="height:50%;" onchange="upTime(this)" required>
 
                 </div>
@@ -61,7 +61,7 @@
                 <div
                     style="width: 90%; height: 10%; display: flex; justify-content: space-between; align-items: center; margin-top: 25px;">
                     <p>Adjust Data</p>
-                    <input id="date" type="date" style="border-radius: 9999em; text-align: center;" style="height:50%;"
+                    <input id="date" type="date" style="border-radius: 9999em; text-align: center; outline: none;" style="height:50%;"
                         onchange="upDate(this)" required>
 
                 </div>
@@ -107,7 +107,7 @@
                     <p>Volume</p>
                     <div style="display: flex; align-items: center; justify-content: space-evenly;">
                         <p class="range-controls">-</p>
-                        <input type="range" min="1" max="100" value="50" id="myRange">
+                        <input oninput="volume(this)" type="range" min="1" max="100" value="50" id="volume1">
                         <p class="range-controls">+</p>
                     </div>
 
@@ -130,7 +130,17 @@
 
             <div id="system"
                 style="height: 90%; width: 62.5%; display: flex;flex-direction: column; align-items: center; display: none;">
+                <div
+                    style="width: 90%; height: 10%; display: flex; justify-content: space-between; align-items: center; margin-top: 25px;">
+                    <p>Language</p>
+                    <select style="border-radius: 9999em; text-align: center; height: 50%; width: 40%; outline: none;" name="languages" id="languages">
+                        <option value="english">English</option>
+                        <option value="portugues">Português</option>
+                        <option value="espanhol">Español</option>
+                        <option value="frances">Français</option>
+                      </select>
 
+                </div>
             </div>
         </div>
         <div class="air-modal box-fadein">

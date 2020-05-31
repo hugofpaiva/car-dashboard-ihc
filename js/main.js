@@ -37,43 +37,43 @@ function init() {
       music();
       playM();
       checkPlay();
+      changeVolume()
     }
 
     if (document.querySelector("#car")) {
       var circles = [circle1, circle2];
       var perc = [0.5, 0.8];
       var count = 0;
-
-      circles.forEach((el) => {
-        var bar = new ProgressBar.Circle(el, {
-          color: "#58C2F7",
-          trailColor: "#fff",
-          trailWidth: 8,
-          duration: 1400,
-          easing: "easeOut",
-          strokeWidth: 8,
-          from: { color: "#58C2F7", a: 0 },
-          to: { color: "#58C2F7", a: 1 },
-          // Set default step function for all animate calls
-          step: function (state, circle) {
-            circle.path.setAttribute("stroke", state.color);
-            if (el == circle1) {
-              circle.setText(
-                '<span style="font-weight:bold">2</span> <span class="opacity-letters">bar</span>'
-              );
-            } else {
-              circle.setText(
-                '<span style="font-weight:bold">500</span> <span class="opacity-letters">km</span>'
-              );
-            }
-          },
+        circles.forEach((el) => {
+          var bar = new ProgressBar.Circle(el, {
+            color: "#58C2F7",
+            trailColor: "#fff",
+            trailWidth: 8,
+            duration: 1400,
+            easing: "easeOut",
+            strokeWidth: 8,
+            from: { color: "#58C2F7", a: 0 },
+            to: { color: "#58C2F7", a: 1 },
+            // Set default step function for all animate calls
+            step: function (state, circle) {
+              circle.path.setAttribute("stroke", state.color);
+              if (el == circle1) {
+                circle.setText(
+                  '<span style="font-weight:bold">2</span> <span class="opacity-letters">bar</span>'
+                );
+              } else {
+                circle.setText(
+                  '<span style="font-weight:bold">500</span> <span class="opacity-letters">km</span>'
+                );
+              }
+            },
+          });
+          bar.text.style.margin = "30% 0";
+          bar.text.style.color = "white";
+          bar.text.style.fontFamily = "Montserrat";
+          bar.animate(perc[count]);
+          count++;
         });
-        bar.text.style.margin = "30% 0";
-        bar.text.style.color = "white";
-        bar.text.style.fontFamily = "Montserrat";
-        bar.animate(perc[count]);
-        count++;
-      }); // Number from 0.0 to 1.0
     }
   } catch (error) {
     console.error(error);
@@ -368,11 +368,11 @@ function settingsResize() {
 function warningResize() {
   var top = document.querySelector(".content").getBoundingClientRect().top;
   var height = document.querySelector(".content").offsetHeight;
-  document.getElementsByClassName("warning-modal")[0].style.top = top + 0.15*height + "px";
+  document.getElementsByClassName("warning-modal")[0].style.top =
+    top + 0.15 * height + "px";
 
-  
   document.getElementsByClassName("warning-modal")[0].style.height =
-    height/1.5 + "px";
+    height / 1.5 + "px";
 
   var width = document.querySelector(".content").offsetWidth;
   document.getElementsByClassName("warning-modal")[0].style.left =
@@ -382,7 +382,6 @@ function warningResize() {
   document.getElementsByClassName("warning-modal")[0].style.width =
     width * 0.45 + "px";
 }
-
 
 function tirePressure() {
   var display = getComputedStyle(document.querySelector(".tire")).display;
@@ -504,6 +503,7 @@ function showSound() {
   document.getElementById("system").style.display = "none";
 
   document.getElementById("sound").style.display = "flex";
+  changeVolume();
 }
 
 function showClock() {
@@ -640,8 +640,8 @@ function changee(el) {
   el.style.textDecoration = "none";
 }
 
-function showWarning(text){
-  document.getElementsByClassName("warning-modal")[0].style.display = 'flex';
+function showWarning(text) {
+  document.getElementsByClassName("warning-modal")[0].style.display = "flex";
   warningResize();
   document.getElementById("text-warning").innerHTML = text;
 }
