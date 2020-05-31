@@ -77,6 +77,7 @@ function init() {
     }
     if (document.querySelector("#janela1")) {
       changeWindows();
+      changeDoors();
     }
   } catch (error) {
     console.error(error);
@@ -618,6 +619,11 @@ function minusFan() {
   }
 }
 
+sessionStorage.setItem("door1", "./img/doors/lock.svg");
+sessionStorage.setItem("door2", "./img/doors/lock.svg");
+sessionStorage.setItem("door3", "./img/doors/lock.svg");
+sessionStorage.setItem("door4", "./img/doors/lock.svg");
+
 function door(el) {
   var id = el.className;
   el = document.getElementById(id);
@@ -625,11 +631,20 @@ function door(el) {
 
   if (src[src.length - 1] === "lock.svg") {
     el.src = "./img/doors/unlock.png";
+    sessionStorage.setItem(id, "./img/doors/unlock.png");
   } else if (src[src.length - 1] === "unlock.png") {
     el.src = "./img/doors/lock.svg";
+    sessionStorage.setItem(id, "./img/doors/lock.svg");
   } else {
     console.log("ERROR!");
   }
+}
+
+function changeDoors() {
+  document.getElementById("door1").src = sessionStorage.getItem("door1");
+  document.getElementById("door2").src = sessionStorage.getItem("door2");
+  document.getElementById("door3").src = sessionStorage.getItem("door3");
+  document.getElementById("door4").src = sessionStorage.getItem("door4");
 }
 
 function changePage(el) {
