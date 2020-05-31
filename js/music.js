@@ -6,6 +6,8 @@ var playing = {
   image: "./img/music/radio/rfm.png",
   time: "3:06",
 };
+
+sessionStorage.setItem("connected", JSON.stringify(false));
 sessionStorage.setItem("actualmusic", JSON.stringify(playing));
 sessionStorage.setItem("changeplay", JSON.stringify(true));
 
@@ -180,10 +182,11 @@ var playing = JSON.parse(sessionStorage.getItem("actualmusic"));
 
 function music() {
   radio = true;
-  document.getElementById("musics-inject").innerHTML = radioDetail
-    .map(
-      (music) =>
-        `<div onclick="clickMusic(this)"
+  try {
+    document.getElementById("musics-inject").innerHTML = radioDetail
+      .map(
+        (music) =>
+          `<div onclick="clickMusic(this)"
       style="height:105px; width: 100%; border-top: 2px solid rgba(255, 255, 255, 0.452); display: flex; justify-content: flex-start; align-items: center; margin-top:5px; margin-bottom:5px">
       <img src="${music.image}" width="80px" height="80px">
       <div style="width: 65%; display: flex; align-items: center; justify-content: space-between;">
@@ -197,16 +200,20 @@ function music() {
       </div>
   </div>
 `
-    )
-    .join("");
+      )
+      .join("");
+  } catch {}
 }
 
 function bluetooth() {
-  radio = false;
-  document.getElementById("musics-inject").innerHTML = musicDetail
-    .map(
-      (music) =>
-        `<div onclick="clickMusic(this)"
+  if (!JSON.parse(sessionStorage.getItem("connected"))) {
+    showWarning('Please Connect a bluetooth device on settings')
+  } else {
+    radio = false;
+    document.getElementById("musics-inject").innerHTML = musicDetail
+      .map(
+        (music) =>
+          `<div onclick="clickMusic(this)"
       style="height:105px; width: 100%; border-top: 2px solid rgba(255, 255, 255, 0.452); display: flex; justify-content: flex-start; align-items: center; margin-top:5px; margin-bottom:5px">
       <img src="${music.image}" width="80px" height="80px">
       <div style="width: 65%; display: flex; align-items: center; justify-content: space-between;">
@@ -220,8 +227,9 @@ function bluetooth() {
       </div>
   </div>
 `
-    )
-    .join("");
+      )
+      .join("");
+  }
 }
 
 function change(el) {
@@ -241,7 +249,7 @@ function change(el) {
               <p style="font-size:small">${music.artist}</p>
           </div>
           <div style="width:12.5%; display:flex; justify-content: flex-end;">
-          <p style="font-size: small; margin-right: 5px;"></p>
+          <p style="font-size: small; margin-right: 5px;">${music.time}</p>
           </div>
       </div>
   </div>`
@@ -263,7 +271,7 @@ function change(el) {
               <p style="font-size:small">${music.artist}</p>
           </div>
           <div style="width:12.5%; display:flex; justify-content: flex-end;">
-          <p style="font-size: small; margin-right: 5px;">${music.time}</p>
+          <p style="font-size: small; margin-right: 5px;"></p>
           </div>
       </div>
   </div>`
@@ -324,14 +332,11 @@ function nextMusic() {
   var playing = JSON.parse(sessionStorage.getItem("actualmusic"));
   var flag = false;
   var found = -1;
-  found = radioDetail.findIndex(
-    (element) => element.name == playing.name
-  );
+  found = radioDetail.findIndex((element) => element.name == playing.name);
   if (found == -1) {
     found = musicDetail.findIndex((element) => element.name == playing.name);
-    flag=true;
+    flag = true;
   }
-
 
   if (!flag) {
     if (found + 1 == radioDetail.length) {
@@ -346,7 +351,7 @@ function nextMusic() {
       var playing = musicDetail[found + 1];
     }
   }
-  
+
   sessionStorage.setItem("actualmusic", JSON.stringify(playing));
   playM();
 }
@@ -355,29 +360,26 @@ function previousMusic() {
   var playing = JSON.parse(sessionStorage.getItem("actualmusic"));
   var flag = false;
   var found = -1;
-  found = radioDetail.findIndex(
-    (element) => element.name == playing.name
-  );
+  found = radioDetail.findIndex((element) => element.name == playing.name);
   if (found == -1) {
     found = musicDetail.findIndex((element) => element.name == playing.name);
     flag = true;
   }
 
-
   if (!flag) {
     if (found == 0) {
-      var playing = radioDetail[radioDetail.length-1];
+      var playing = radioDetail[radioDetail.length - 1];
     } else {
       var playing = radioDetail[found - 1];
     }
   } else {
     if (found == 0) {
-      var playing = musicDetail[musicDetail.length-1];
+      var playing = musicDetail[musicDetail.length - 1];
     } else {
       var playing = musicDetail[found - 1];
     }
   }
-  
+
   sessionStorage.setItem("actualmusic", JSON.stringify(playing));
   playM();
 }

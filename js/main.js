@@ -330,8 +330,8 @@ function airResize() {
   var top = document.querySelector(".content").getBoundingClientRect().top;
   document.getElementsByClassName("air-modal")[0].style.top = top + "px";
 
-  var heigth = document.querySelector(".content").offsetHeight;
-  document.getElementsByClassName("air-modal")[0].style.height = heigth + "px";
+  var height = document.querySelector(".content").offsetHeight;
+  document.getElementsByClassName("air-modal")[0].style.height = height + "px";
 
   var width = document.querySelector(".content").offsetWidth;
   document.getElementsByClassName("air-modal")[0].style.left =
@@ -345,15 +345,16 @@ function airResize() {
 function resize() {
   airResize();
   settingsResize();
+  warningResize();
 }
 
 function settingsResize() {
   var top = document.querySelector(".content").getBoundingClientRect().top;
   document.getElementsByClassName("settings-modal")[0].style.top = top + "px";
 
-  var heigth = document.querySelector(".content").offsetHeight;
+  var height = document.querySelector(".content").offsetHeight;
   document.getElementsByClassName("settings-modal")[0].style.height =
-    heigth + "px";
+    height + "px";
 
   var width = document.querySelector(".content").offsetWidth;
   document.getElementsByClassName("settings-modal")[0].style.left =
@@ -363,6 +364,25 @@ function settingsResize() {
   document.getElementsByClassName("settings-modal")[0].style.width =
     width * 0.45 + "px";
 }
+
+function warningResize() {
+  var top = document.querySelector(".content").getBoundingClientRect().top;
+  var height = document.querySelector(".content").offsetHeight;
+  document.getElementsByClassName("warning-modal")[0].style.top = top + 0.15*height + "px";
+
+  
+  document.getElementsByClassName("warning-modal")[0].style.height =
+    height/1.5 + "px";
+
+  var width = document.querySelector(".content").offsetWidth;
+  document.getElementsByClassName("warning-modal")[0].style.left =
+    width * 0.25 +
+    document.querySelector(".content").getBoundingClientRect().left +
+    "px";
+  document.getElementsByClassName("warning-modal")[0].style.width =
+    width * 0.45 + "px";
+}
+
 
 function tirePressure() {
   var display = getComputedStyle(document.querySelector(".tire")).display;
@@ -501,7 +521,7 @@ function showBluetooth() {
 
   document.getElementById("bluetooth").style.display = "flex";
 
-  if (sessionStorage.getItem("iphone")) {
+  if (JSON.parse(sessionStorage.getItem("connected"))) {
     document.getElementById("iphone-not-connected").style.display = "none";
     document.getElementById("iphone-connected").style.display = "flex";
   } else {
@@ -520,10 +540,11 @@ function showSystem() {
 
 function connect(el) {
   if (el.innerHTML === "Connected") {
-    sessionStorage.removeItem("iphone", true);
+    sessionStorage.setItem("connected", JSON.stringify(false));
     showBluetooth();
+    music();
   } else if (el.innerHTML === "Connect") {
-    sessionStorage.setItem("iphone", true);
+    sessionStorage.setItem("connected", JSON.stringify(true));
     showBluetooth();
   } else {
     console.log("ERROR!");
@@ -617,4 +638,10 @@ function changePage(el) {
 }
 function changee(el) {
   el.style.textDecoration = "none";
+}
+
+function showWarning(text){
+  document.getElementsByClassName("warning-modal")[0].style.display = 'flex';
+  warningResize();
+  document.getElementById("text-warning").innerHTML = text;
 }

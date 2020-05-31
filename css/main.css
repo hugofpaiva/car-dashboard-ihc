@@ -160,7 +160,7 @@ body {
   width: 80%;
   height: 16%;
   border: solid;
-  border-radius: 20%/ 50%;
+  border-radius: 9999em;
   border-color: white;
   border-width: 2px;
   display: flex;
@@ -276,6 +276,17 @@ a:hover, a:visited, a:link, a:active {
   background-color: rgba(1, 4, 42, 0.95);
 }
 
+.warning-modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  z-index: 2;
+  border-radius: 2.5%;
+  background-color: rgba(1, 4, 42, 0.95);
+}
+
 .air-flex {
   display: flex;
   flex-direction: column;
@@ -283,6 +294,11 @@ a:hover, a:visited, a:link, a:active {
   width: 95%;
   align-items: center;
   justify-content: space-around;
+}
+
+.connected {
+  background-color: #F2F3F4;
+  color: black;
 }
 
 .air-button {
