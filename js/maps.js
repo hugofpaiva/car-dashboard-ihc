@@ -1,6 +1,7 @@
+var lati = -33.8688;
+var longi = 151.2195;
+navigator.geolocation;
 function initAutocomplete() {
-  var lati = -33.8688;
-  var longi = 151.2195;
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
       lati = position.coords.latitude;
