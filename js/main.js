@@ -7,6 +7,7 @@ let options = {
   plugins: [new SwupBodyClassPlugin()],
 };
 var swup = new Swup(options);
+var timer;
 
 function init() {
   try {
@@ -20,13 +21,13 @@ function init() {
         updateDom(data);
       } else {
         getLocation();
-        var timer = setInterval(checkWeather, 5000);
+        timer = setInterval(checkWeather, 5000);
       }
       setInterval(getLocation, 3600000);
     }
 
     if (document.querySelector("#phone")) {
-      phone();
+      initialPhone();
     }
 
     if (document.querySelector("#map")) {
@@ -542,7 +543,7 @@ function showSystem() {
   document.getElementById("system").style.display = "flex";
 }
 
-function connect(el) {
+function connect(el) { 
   if (el.innerHTML === "Connected") {
     sessionStorage.setItem("connected", JSON.stringify(false));
     showBluetooth();
@@ -553,6 +554,7 @@ function connect(el) {
   } else {
     console.log("ERROR!");
   }
+  initialPhone()
 }
 
 function seatRight(el) {

@@ -260,7 +260,7 @@ a:hover, a:visited, a:link, a:active {
   justify-content: center;
   align-items: center;
   position: absolute;
-  z-index: 2;
+  z-index: 10;
   border-radius: 2.5%;
   background-color: rgba(1, 4, 42, 0.95);
   color: white;
@@ -271,7 +271,7 @@ a:hover, a:visited, a:link, a:active {
   justify-content: center;
   align-items: center;
   position: absolute;
-  z-index: 2;
+  z-index: 10;
   border-radius: 2.5%;
   background-color: rgba(1, 4, 42, 0.95);
 }
