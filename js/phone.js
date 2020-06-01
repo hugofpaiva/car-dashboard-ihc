@@ -36,14 +36,7 @@ function makeCall() {
 }
 
 function showCall(name) {
-  var image1 = document.getElementById("callimg");
-  if (image1 !== null) {
-    var name1 = document.getElementById("callname");
-
-    recentcalls.push([image1.src, name1.innerHTML, "today"]);
-  }
-
-  var box = document.getElementById("recentbox");
+    var box = document.getElementById("recentbox");
   box.innerHTML = "";
   box.style.display = "none";
 
@@ -74,6 +67,8 @@ function showCall(name) {
   namediv.innerHTML = contact[1];
   namediv.style = "font-weight: bold; font-size: 1.7vw; height: 10%;";
 
+  recentcalls.push([image.src, namediv.innerHTML, "today"]);
+
   var timediv = document.createElement("div");
   timediv.innerHTML = "00:00";
   timediv.id = "phonetime";
@@ -101,13 +96,8 @@ function showCall(name) {
 }
 
 function endCall() {
-  var image = document.getElementById("callimg");
-  var name = document.getElementById("callname");
-
   var call = document.getElementById("callbox");
   call.style.display = "none";
-
-  recentcalls.push([image.src, name.innerHTML, "today"]);
 
   showRecents();
 }
