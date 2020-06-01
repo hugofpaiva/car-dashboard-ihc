@@ -546,8 +546,14 @@ function showSystem() {
 function connect(el) {
   if (el.innerHTML === "Connected") {
     sessionStorage.setItem("connected", JSON.stringify(false));
+    playing = JSON.parse(sessionStorage.getItem("actualmusic"));
+    if (musicDetail.find((music) => music.name == playing.name)) {
+      playing = radioDetail[0];
+      sessionStorage.setItem("actualmusic", JSON.stringify(playing));
+    }
     showBluetooth();
     music();
+    playM();
   } else if (el.innerHTML === "Connect") {
     sessionStorage.setItem("connected", JSON.stringify(true));
     showBluetooth();
