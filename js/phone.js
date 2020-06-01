@@ -117,6 +117,8 @@ function showRecents() {
     var row = document.createElement("div");
     row.style =
       "width: 100%; height:15%; display: flex; justify-content: space-evenly; flex-direction: row;";
+    row.id = recentcalls[i][1];
+    row.setAttribute('onclick','showCall(this.id)')
 
     var div1 = document.createElement("div");
     div1.style = "width: 40%; display:flex; justify-content: flex-end;";
