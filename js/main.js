@@ -11,6 +11,8 @@ let options = {
 var swup = new Swup(options);
 var timer;
 
+sessionStorage.setItem("pressure", JSON.stringify(false));
+
 function init() {
   try {
     if (document.querySelector("#index")) {
@@ -439,6 +441,13 @@ function tirePressure() {
   } else {
     console.log("Erro ao abrir a menu!");
   }
+
+  if (JSON.parse(sessionStorage.getItem("pressure"))) {
+    var el = document.getElementById("low-pressure");
+    el.style.color="red";
+    el.innerHTML = "0.6" + " <span class='opacity-letters'>bar</span>";
+    
+  }
 }
 
 function turnOnOffAir(el) {
@@ -770,4 +779,11 @@ function changeWindows() {
   document.getElementById("janela2").value = sessionStorage.getItem("janela2");
   document.getElementById("janela3").value = sessionStorage.getItem("janela3");
   document.getElementById("janela4").value = sessionStorage.getItem("janela4");
+}
+
+function warningPressure() {
+  sessionStorage.setItem("pressure", JSON.stringify(true));
+  showWarning(
+    "AVISO:\n Pressão do pneu do lado do condutor fora dos limites recomendados"
+  );
 }
