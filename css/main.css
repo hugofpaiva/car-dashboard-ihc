@@ -589,4 +589,9 @@ html.is-animating .transition-fade {
     width: 1000px;
     height: 650px;
   }
+
+  #contactonsmallsize{
+    width: 65px;
+    height: 65px;
+  }
 }

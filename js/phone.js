@@ -36,6 +36,13 @@ function makeCall() {
 }
 
 function showCall(name) {
+  var image1 = document.getElementById("callimg");
+  if (image1 !== null) {
+    var name1 = document.getElementById("callname");
+
+    recentcalls.push([image1.src, name1.innerHTML, "today"]);
+  }
+
   var box = document.getElementById("recentbox");
   box.innerHTML = "";
   box.style.display = "none";
@@ -113,12 +120,19 @@ function showRecents() {
   var numpad = document.getElementById("numPad");
   numpad.style.display = "none";
 
+  var recent = document.createElement("div");
+  recent.style =
+    "width: 100%; height: 10%; display: flex; justify-content: center; flex-direction: row; margin-top: 10px; font-weight: bold; font-size: larger";
+  recent.innerHTML = "RECENTS";
+
+  box.appendChild(recent);
+
   for (i = recentcalls.length - 1; i > -1; i--) {
     var row = document.createElement("div");
     row.style =
       "width: 100%; height:15%; display: flex; justify-content: space-evenly; flex-direction: row;";
     row.id = recentcalls[i][1];
-    row.setAttribute('onclick','showCall(this.id)')
+    row.setAttribute("onclick", "showCall(this.id)");
 
     var div1 = document.createElement("div");
     div1.style = "width: 40%; display:flex; justify-content: flex-end;";
@@ -132,6 +146,7 @@ function showRecents() {
     image.height = "80";
     image.style.borderRadius = "9990em";
     image.src = recentcalls[i][0];
+    image.id = "contactonsmallsize";
 
     var nome = document.createElement("div");
     nome.style = "font-weight: bold; font-size: larger;";
