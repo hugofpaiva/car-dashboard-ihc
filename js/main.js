@@ -543,7 +543,7 @@ function showSystem() {
   document.getElementById("system").style.display = "flex";
 }
 
-function connect(el) { 
+function connect(el) {
   if (el.innerHTML === "Connected") {
     sessionStorage.setItem("connected", JSON.stringify(false));
     showBluetooth();
@@ -554,7 +554,7 @@ function connect(el) {
   } else {
     console.log("ERROR!");
   }
-  initialPhone()
+  initialPhone();
 }
 
 function seatRight(el) {
@@ -615,6 +615,12 @@ function minusFan() {
       document.getElementById(
         "fanimage"
       ).src = `./img/down-info/air/fan${last}.png`;
+      if (last == 4) {
+        var air = document.getElementById("main-air-con");
+        if (air.innerHTML == "ON") {
+          turnOnOffAir(document.getElementById("main-air-con"));
+        }
+      }
     } else {
       document.getElementById("fanimage").src = "./img/down-info/air/fan4.png";
     }
