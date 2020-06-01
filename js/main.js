@@ -81,9 +81,15 @@ function init() {
       });
     }
     if (document.querySelector("#janela1")) {
-      changeWindows();
-      changeDoors();
-      doorResize();
+      try {
+        changeWindows();
+      } catch {}
+      try {
+        changeDoors();
+      } catch {}
+      try {
+        doorResize();
+      } catch {}
     }
   } catch (error) {
     console.error(error);
@@ -353,10 +359,18 @@ function airResize() {
 }
 
 function resize() {
-  airResize();
-  settingsResize();
-  warningResize();
-  doorResize();
+  try {
+    airResize();
+  } catch {}
+  try {
+    settingsResize();
+  } catch {}
+  try {
+    warningResize();
+  } catch {}
+  try {
+    doorResize();
+  } catch {}
 }
 
 function settingsResize() {
@@ -444,9 +458,8 @@ function tirePressure() {
 
   if (JSON.parse(sessionStorage.getItem("pressure"))) {
     var el = document.getElementById("low-pressure");
-    el.style.color="red";
+    el.style.color = "red";
     el.innerHTML = "0.6" + " <span class='opacity-letters'>bar</span>";
-    
   }
 }
 
@@ -601,13 +614,16 @@ function connect(el) {
     }
     showBluetooth();
     music();
-    playM();
+    try {
+      playM();
+    } catch {}
   } else if (el.innerHTML === "Connect") {
     sessionStorage.setItem("connected", JSON.stringify(true));
     showBluetooth();
   } else {
     console.log("ERROR!");
   }
+  console.log("ASF");
   initialPhone();
 }
 
@@ -786,4 +802,11 @@ function warningPressure() {
   showWarning(
     "WARNING:\n Driver's tire pressure outside the recommended limits"
   );
+}
+
+function okWarning() {
+  document.getElementsByClassName("warning-modal")[0].style.display = "none";
+  if (!JSON.parse(sessionStorage.getItem("connected"))) {
+    openSettings();
+  }
 }
