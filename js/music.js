@@ -209,7 +209,7 @@ function music() {
 
 function bluetooth() {
   if (!JSON.parse(sessionStorage.getItem("connected"))) {
-    showWarning("Please Connect a bluetooth device on settings");
+    showWarning("Please connect a bluetooth device on settings");
   } else {
     radio = false;
     document.getElementById("musics-inject").innerHTML = musicDetail

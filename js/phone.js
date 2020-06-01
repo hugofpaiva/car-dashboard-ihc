@@ -329,6 +329,6 @@ function initialPhone() {
     phone();
   } else {
     document.getElementById("phoneswup").style.display = "none";
-    showWarning("Please Connect a bluetooth device on settings");
+    showWarning("Please connect a phone on bluetooth settings");
   }
 }
