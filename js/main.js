@@ -1,3 +1,5 @@
+window.addEventListener("resize", resize);
+
 let options = {
   linkSelector:
     'a[href^="' +
@@ -79,6 +81,7 @@ function init() {
     if (document.querySelector("#janela1")) {
       changeWindows();
       changeDoors();
+      doorResize();
     }
   } catch (error) {
     console.error(error);
@@ -351,6 +354,7 @@ function resize() {
   airResize();
   settingsResize();
   warningResize();
+  doorResize();
 }
 
 function settingsResize() {
@@ -368,6 +372,41 @@ function settingsResize() {
     "px";
   document.getElementsByClassName("settings-modal")[0].style.width =
     width * 0.45 + "px";
+}
+
+function doorResize() {
+  const vw = Math.max(
+    document.documentElement.clientWidth || 0,
+    window.innerWidth || 0
+  );
+
+  if (vw < 1400) {
+    var top = document.querySelector(".content").getBoundingClientRect().top;
+
+    var height = document.querySelector(".content").offsetHeight;
+
+    document.getElementsByClassName("door-modal")[0].style.top =
+      top + height * 0.02 + "px";
+
+    var width = document.querySelector(".content").offsetWidth;
+    document.getElementsByClassName("door-modal")[0].style.left =
+      width * 0.4325 +
+      document.querySelector(".content").getBoundingClientRect().left +
+      "px";
+  } else {
+    var top = document.querySelector(".content").getBoundingClientRect().top;
+
+    var height = document.querySelector(".content").offsetHeight;
+
+    document.getElementsByClassName("door-modal")[0].style.top =
+      top + height * 0.045 + "px";
+
+    var width = document.querySelector(".content").offsetWidth;
+    document.getElementsByClassName("door-modal")[0].style.left =
+      width * 0.445 +
+      document.querySelector(".content").getBoundingClientRect().left +
+      "px";
+  }
 }
 
 function warningResize() {
@@ -637,6 +676,7 @@ sessionStorage.setItem("door1", "./img/doors/lock.svg");
 sessionStorage.setItem("door2", "./img/doors/lock.svg");
 sessionStorage.setItem("door3", "./img/doors/lock.svg");
 sessionStorage.setItem("door4", "./img/doors/lock.svg");
+sessionStorage.setItem("alldoors", "./img/doors/lock.svg");
 
 function door(el) {
   var id = el.className;
@@ -654,11 +694,48 @@ function door(el) {
   }
 }
 
+function lockDoors(el) {
+  var el = el.children[0];
+  var door1 = document.getElementById("door1");
+  var door2 = document.getElementById("door2");
+  var door3 = document.getElementById("door3");
+  var door4 = document.getElementById("door4");
+  var src = el.src.split("/");
+
+  if (src[src.length - 1] === "lock.svg") {
+    door1.src = "./img/doors/unlock.png";
+    door2.src = "./img/doors/unlock.png";
+    door3.src = "./img/doors/unlock.png";
+    door4.src = "./img/doors/unlock.png";
+    el.src = "./img/doors/unlock.png";
+    sessionStorage.setItem("alldoors", "./img/doors/unlock.png");
+    sessionStorage.setItem("door1", "./img/doors/unlock.png");
+    sessionStorage.setItem("door2", "./img/doors/unlock.png");
+    sessionStorage.setItem("door3", "./img/doors/unlock.png");
+    sessionStorage.setItem("door4", "./img/doors/unlock.png");
+  } else if (src[src.length - 1] === "unlock.png") {
+    door1.src = "./img/doors/lock.svg";
+    door2.src = "./img/doors/lock.svg";
+    door3.src = "./img/doors/lock.svg";
+    door4.src = "./img/doors/lock.svg";
+    el.src = "./img/doors/lock.svg";
+    sessionStorage.setItem("alldoors", "./img/doors/lock.svg");
+    sessionStorage.setItem("door1", "./img/doors/lock.svg");
+    sessionStorage.setItem("door2", "./img/doors/lock.svg");
+    sessionStorage.setItem("door3", "./img/doors/lock.svg");
+    sessionStorage.setItem("door4", "./img/doors/lock.svg");
+  } else {
+    console.log("ERROR!");
+  }
+}
+
 function changeDoors() {
   document.getElementById("door1").src = sessionStorage.getItem("door1");
   document.getElementById("door2").src = sessionStorage.getItem("door2");
   document.getElementById("door3").src = sessionStorage.getItem("door3");
   document.getElementById("door4").src = sessionStorage.getItem("door4");
+
+  document.getElementById("door9").src = sessionStorage.getItem("alldoors");
 }
 
 function changePage(el) {
