@@ -623,7 +623,6 @@ function connect(el) {
   } else {
     console.log("ERROR!");
   }
-  console.log("ASF");
   initialPhone();
 }
 

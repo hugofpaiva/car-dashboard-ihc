@@ -398,7 +398,6 @@ function volume(el) {
       document.getElementById("music-toggle").src = "./img/music/controls/nosound.svg";
     } catch {}
   }
-  console.log(el.value);
   changeVolume();
 }
 function changeVolume() {
