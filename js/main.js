@@ -784,6 +784,6 @@ function changeWindows() {
 function warningPressure() {
   sessionStorage.setItem("pressure", JSON.stringify(true));
   showWarning(
-    "AVISO:\n Pressão do pneu do lado do condutor fora dos limites recomendados"
+    "WARNING:\n Driver's tire pressure outside the recommended limits"
   );
 }
