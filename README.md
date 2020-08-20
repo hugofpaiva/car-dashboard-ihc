@@ -3,13 +3,13 @@
 The final project of the Human-Computer Interaction discipline consists of a high-fidelity prototype of a universal car infotainment system. Through the dashboard it is possible for the user to control the vehicle's air conditioning system, check the vehicle's current status, control the sound system, among others.
 
 <p align="center">
-  <a href="https://hugofpaiva.github.io/ihc_prototype/">
+  <a href="https://hugofpaiva.github.io/car_dashboard_ihc/">
     <img src="https://hugopaiva.com/docs/ihc.gif" width="500">
   </a>
 </p>
 
 ## Demo
-Project demo available <a href="https://hugofpaiva.github.io/ihc_prototype/">here</a>
+Project demo available <a href="https://hugofpaiva.github.io/car_dashboard_ihc/">here</a>
 
 ### Notes
 Optimized for large screens, ideal 1920x1080
