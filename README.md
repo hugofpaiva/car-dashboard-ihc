@@ -1,6 +1,6 @@
 <h1 align="center"> Car Dashboard</h1> <br>
 
-The final project of the Human-Computer Interaction discipline consists of a high-fidelity prototype of a universal car infotainment system. Through the dashboard it is possible for the user to control the vehicle's air conditioning system, check the vehicle's current status, control the sound system, among others
+The final project of the Human-Computer Interaction discipline consists of a high-fidelity prototype of a universal car infotainment system. Through the dashboard it is possible for the user to control the vehicle's air conditioning system, check the vehicle's current status, control the sound system, among others.
 
 <p align="center">
   <a href="https://hugofpaiva.github.io/ihc_prototype/">
@@ -28,4 +28,4 @@ Dashboard made with HTML, CSS and JavaScript web programming and some external l
 
 ## Grade
 
-Evaluated with **17,5** out of 20.
+Evaluated with **18,5** out of 20.
