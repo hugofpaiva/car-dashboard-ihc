@@ -15,6 +15,7 @@ Project demo available <a href="https://hugofpaiva.github.io/ihc_prototype/">her
 Optimized for large screens, ideal 1920x1080
 
 Tested on June 1, 2020 on Google Chrome browser with version 83.0.4103.61
+
 Permission to access the location required for features such as current location on maps and weather
 
 ## Technologies
