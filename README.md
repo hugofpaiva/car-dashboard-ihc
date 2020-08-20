@@ -1,10 +1,31 @@
+<h1 align="center"> Car Dashboard</h1> <br>
 
-# Interação Humano-Computador - Protótipo de alta fidelidade
+The final project of the Human-Computer Interaction discipline consists of a high-fidelity prototype of a universal car infotainment system. Through the dashboard it is possible for the user to control the vehicle's air conditioning system, check the vehicle's current status, control the sound system, among others
 
-***Otimizado para ecrãs de grandes dimensões, ideal 1920x1080***
-Testado a 1 de Junho de 2020 no Chrome com a versão 83.0.4103.61
-Necessário dar permissão para aceder à localização para funcionalidades como localização atual nos mapas e metereologia atual
+<p align="center">
+  <a href="https://hugofpaiva.github.io/ihc_prototype/">
+    <img src="https://hugopaiva.com/docs/ihc.gif" width="500">
+  </a>
+</p>
 
- ## Avaliação
-Classificação obtida de **18,5** valores em 20.
+## Demo
+Project demo available <a href="https://hugofpaiva.github.io/ihc_prototype/">here</a>
 
+### Notes
+Optimized for large screens, ideal 1920x1080
+
+Tested on June 1, 2020 on Google Chrome browser with version 83.0.4103.61
+Permission to access the location required for features such as current location on maps and weather
+
+## Technologies
+
+Dashboard made with HTML, CSS and JavaScript web programming and some external libraries for some functionalities:
+-  Swup JS
+    
+-  Maps JavaScript API
+    
+-  ProgressBar JS
+
+## Grade
+
+Evaluated with **17,5** out of 20.
