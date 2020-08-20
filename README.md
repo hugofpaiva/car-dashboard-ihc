@@ -1,6 +1,6 @@
 <h1 align="center"> Car Dashboard</h1> <br>
 
-The final project of the Human-Computer Interaction discipline consists of a high-fidelity prototype of a universal car infotainment system. Through the dashboard it is possible for the user to control the vehicle's air conditioning system, check the vehicle's current status, control the sound system, among others.
+The final project of the Human-Computer Interaction course consists of a high-fidelity prototype of a universal car infotainment system. Through the dashboard it is possible for the user to control the vehicle's air conditioning system, check the vehicle's current status, control the sound system, among others.
 
 <p align="center">
   <a href="https://hugofpaiva.github.io/car_dashboard_ihc/">
@@ -23,7 +23,7 @@ Permission to access the location required for features such as current location
 Dashboard made with HTML, CSS and JavaScript web programming and some external libraries for some functionalities:
 -  Swup JS
     
--  Maps JavaScript API
+-  Google Maps JavaScript
     
 -  ProgressBar JS
 
